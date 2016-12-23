@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Recpic</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_email">EMAIL (*)</string>
+    <string name="hint_password">PASSWORD (*)</string>
+    <string name="hint_confirm_password">CONFIRM PASSWORD (*)</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="login">LOGIN</string>
+    <string name="txt_sign_up"></string>
+    <string name="err_msg_name">Enter your full name</string>
+    <string name="err_msg_email">Enter valid email address</string>
+    <string name="err_msg_password">Enter the password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_foget">Forgot</string>
+
+    <string name="sign_up_title">Sign up with your social account</string>
+    <string name="sign_in_title">Sign in with your social account</string>
+    <string name="sign_up_or">or sign up your email address</string>
+    <string name="sign_in_or">or sign in your email address</string>
+    <string name="sign_up_bottom">By signing up, you agree to our</string>
+    <string name="sign_up_terms"><b>Terms of Services </b> and <b>Policy</b></string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="dont_have_account">Don\'t have an account? <b>Signup</b></string>
+
+    <string name="forgot">FORGOT</string>
+    <string name="forgot_content">Enter the email address that used to register for \n Recpic and will be send you an email shortly which \n allows you to change your password</string>
+    <string name="forget_login">Already have an acount? <b>Login</b></string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="profile">MY PROFILE</string>
+    <string name="pass_require">Password change require current password</string>
+
+    <string name="current_pass_word">CURRENT PASSWORD</string>
+    <string name="new_pass_word">NEW PASSWORD</string>
+    <string name="confirm_pass_word">CONFIRM PASSWORD</string>
+
+    <string name="profile_current_passowrd">CURRENT PASSWORD</string>
+    <string name="profile_new_password">NEW PASSWORD</string>
+    <string name="profile_confirm_password">CONFIRM PASSWORD</string>
+
+    <string name="note_add_tilte">Add new note</string>
+
+    <!--Settings-->
+    <string name="basic_setting">BASIC SETTING</string>
+    <string name="s_profile">My profile</string>
+    <string name="s_day">Starting Date</string>
+    <string name="s_language">Choose Language</string>
+    <string name="preferences">PREFERENCES</string>
+    <string name="s_card">Card(SMS) Setting</string>
+    <string name="s_backup">Back up &amp; Export Data</string>
+    <string name="s_noti">Notification Toggle</string>
+    <string name="s_auto">Automatically save photos</string>
+    <string name="etc">ETC</string>
+    <string name="s_faq">FAQ</string>
+    <string name="s_invite">Invite friends to Recpic</string>
+    <string name="s_send_email">Send email to Recpic team</string>
+    <string name="s_about">About</string>
+    <string name="s_sign_out">Sign out</string>
+
+    <!--Add note-->
+    <string name="add_note_title">Default title</string>
+    <string name="content_note">Default content</string>
+
+    <!--Title Action Bar-->
+    <string name="ac_add_note">DEFAULT TITLE</string>
+</resources>

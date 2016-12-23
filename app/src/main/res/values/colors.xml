@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009da1</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="white">#fff</color>
+    <color name="red">#FF3300</color>
+
+    <color name="fab_main">#FF0000</color>
+    <color name="fab_edit">#009da1</color>
+    <color name="fab_cam">#FFCC00</color>
+    <color name="fab_copy">#6699FF</color>
+    <color name="fab_search">#333399</color>
+
+    <color name="boder_user_profile">#DDDDDD</color>
+
+    <color name="note_back_title">#EEEEEE</color>
+    <color name="note_title">#999999</color>
+</resources>

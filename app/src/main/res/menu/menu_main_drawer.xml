@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_dashboard"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_budget"
+            android:icon="@drawable/ic_event"
+            android:title="Budget" />
+        <item
+            android:id="@+id/nav_asset"
+            android:icon="@drawable/ic_headset"
+            android:title="Asset Analysis" />
+        <item
+            android:id="@+id/nav_note"
+            android:icon="@drawable/icon_note"
+            android:title="Notes" />
+        <item
+            android:id="@+id/nav_repeat"
+            android:icon="@drawable/icon_repeat_record"
+            android:title="Repeat Records" />
+        <item
+            android:id="@+id/nav_payment"
+            android:icon="@drawable/ic_forum"
+            android:title="Payment plan" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/icon_setting"
+            android:title="Settings" />
+
+    </group>
+
+</menu>
