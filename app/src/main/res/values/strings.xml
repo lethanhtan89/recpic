@@ -62,7 +62,10 @@
     <!--Add note-->
     <string name="add_note_title">Default title</string>
     <string name="content_note">Default content</string>
+    <string name="menu_edit_note">Edit</string>
+    <string name="menu_remove_note">Remove</string>
 
     <!--Title Action Bar-->
     <string name="ac_add_note">DEFAULT TITLE</string>
+
 </resources>

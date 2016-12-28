@@ -24,15 +24,19 @@ import vn.com.recpic.NoteScreen.model.Notes;
  */
 
 public class DataBaseHelper extends SQLiteOpenHelper {
-    private static final String DB_NAME = "Recpic.sqlite";
+    private static final String TAG = SQLiteOpenHelper.class.getSimpleName();
+    private static final String DB_NAME = "Recpic";
     private static String DB_PATH = "";
     private static final int DB_VERSION = 1;
     private static final String DB_TABLE = "Notes";
+    private static final String NOTE_ID = "_id";
+    private static final String NOTE_TITLE = "title";
+    private static final String NOTE_CONTENT = "content";
 
     private final Context mContext;
     private SQLiteDatabase mSqLiteDatabase;
     public DataBaseHelper(Context mContext){
-        super(mContext, DB_NAME, null, 1);
+        super(mContext, DB_NAME, null, DB_VERSION);
         if(Build.VERSION.SDK_INT >15){
             DB_PATH = mContext.getApplicationInfo().dataDir + "/databases/";
         }else {
@@ -42,14 +46,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql="create table Notes" +
+      String sql="create table Notes" +
                 "(" +
                 "_id integer primary key autoincrement," +
-                "noidung text," +
-                "thoigian text" +
+                "title text," +
+                "content text" +
+                "images text" +
                 ") ";
         db.execSQL(sql);
-
     }
 
     @Override
@@ -129,11 +133,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         try {
             //SQLiteDatabase db = this.getWritableDatabase();
-            Cursor mCursor = QueryData("select * from Notes");
+            Cursor mCursor = QueryData("select * from Notes ORDER BY _ID DESC");
             if (mCursor != null) {
                 if (mCursor.moveToFirst()) {
                     do {
                         Notes notes = new Notes();
+                        notes.setId(mCursor.getInt(0));
                         notes.setTitle(mCursor.getString(1));
                         notes.setContent(mCursor.getString(2));
                         notesArrayList.add(notes);
@@ -148,9 +153,37 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void addNewNote(Notes notes){
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("title", notes.getTitle());
-        values.put("content", notes.getContent());
-        db.insert("Notes", null, values);
+        db.beginTransaction();
+        try {
+            ContentValues values = new ContentValues();
+            values.put(NOTE_TITLE, notes.getTitle());
+            values.put(NOTE_CONTENT, notes.getContent());
+            db.insert(DB_TABLE, null, values);
+            db.setTransactionSuccessful();
+        }catch(SQLiteException e){
+            e.printStackTrace();
+            Log.d(TAG, "can not add infomation into database");
+        }
+        finally {
+            db.endTransaction();
+        }
+    }
+
+    public void removeNote(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("Notes", "id=?", new String[]{id + ""});
+    }
+
+    public void editNote(Notes notes){
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            ContentValues values = new ContentValues();
+            values.put(NOTE_TITLE, notes.getTitle());
+            values.put(NOTE_CONTENT, notes.getContent());
+            db.update(DB_TABLE, values, NOTE_ID + " = ?", new String[]{notes.getId() + ""});
+            db.close();
+        }catch (SQLiteException e){
+            e.printStackTrace();
+        }
     }
 }

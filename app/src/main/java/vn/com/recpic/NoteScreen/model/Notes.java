@@ -19,7 +19,7 @@ public class Notes implements Serializable{
         this.content = content;
     }
 
-    public Notes(int id, String title, String content, String time){
+    public Notes(int id, String title, String content){
         this.id = id;
         this.title = title;
         this.content = content;
