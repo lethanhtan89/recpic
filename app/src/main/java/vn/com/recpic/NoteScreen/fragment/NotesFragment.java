@@ -1,15 +1,13 @@
 package vn.com.recpic.NoteScreen.fragment;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
@@ -19,11 +17,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import vn.com.recpic.NoteScreen.activity.AddNoteActivity;
@@ -49,6 +45,14 @@ public class NotesFragment extends Fragment implements NotesListener {
     private ArrayList<Notes> mNotesArrayList = new ArrayList<Notes>();
     private Cursor mCursor;
     private NotesApdapter mNotesApdapter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //ActionBar actionBar = getActivity().getActionBar();
+        //actionBar.setTitle("NOTE");
+    }
 
     @Nullable
     @Override
@@ -115,7 +119,7 @@ public class NotesFragment extends Fragment implements NotesListener {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-        //Notes notes = (Notes) mRecyclerView.getChildItemId(info.position);
+        //final Notes notes = (Notes) mRecyclerView.getChildAdapterPosition(info.position);
         //long id = mRecyclerView.getChildItemId(info.position);
         switch (item.getItemId()){
             case R.id.no_remove:

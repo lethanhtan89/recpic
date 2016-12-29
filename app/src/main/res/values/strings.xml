@@ -67,5 +67,12 @@
 
     <!--Title Action Bar-->
     <string name="ac_add_note">DEFAULT TITLE</string>
+    <string name="ac_home">HOME</string>
+    <string name="ac_budget">BUDGET</string>
+    <string name="ac_asset">ASSET ANALYSIS</string>
+    <string name="ac_note">NOTE</string>
+    <string name="ac_repeat">REPEAT RECORDS</string>
+    <string name="ac_payment">PAYMENT PLAN</string>
+    <string name="ac_setting">SETTINGS</string>
 
 </resources>
