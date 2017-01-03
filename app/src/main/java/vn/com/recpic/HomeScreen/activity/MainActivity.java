@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity
     private boolean show = false;
     private View mNavigationHeader;
     private ImageView imgProfile;
-    private TextView txtName, txtEmail;
+    private TextView txtName, txtEmail, txtToolbarTitle;
+    private Toolbar toolbar;
 
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity
         txtName = (TextView) mNavigationHeader.findViewById(R.id.nav_txt_name);
         txtEmail = (TextView) mNavigationHeader.findViewById(R.id.nav_txt_email);
         imgProfile = (ImageView) mNavigationHeader.findViewById(R.id.nav_imageView);
+        txtToolbarTitle = (TextView) findViewById(R.id.toolbar_title);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.containerView, new HomeFragment()).commit();
+        //toolbar.setTitle(getResources().getString(R.string.ac_home));
 
         clickFloating();
         mNavigationView.setNavigationItemSelectedListener(this);
@@ -153,7 +156,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.main_action_list) {
+            return true;
+        }
+
+        if(id ==R.id.main_action_noti){
             return true;
         }
 
@@ -177,24 +184,33 @@ public class MainActivity extends AppCompatActivity
         switch (viewId) {
             case R.id.nav_home:
                 fragment = new HomeFragment();
+                txtToolbarTitle.setText(getResources().getString(R.string.ac_home));
+
                 break;
             case R.id.nav_budget:
                 fragment = new BudgetFragment();
+                txtToolbarTitle.setText(getResources().getString(R.string.ac_budget));
                 break;
             case R.id.nav_asset:
                 fragment = new AssetFragment();
+                txtToolbarTitle.setText(getResources().getString(R.string.ac_asset));
                 break;
             case R.id.nav_note:
                 fragment = new NotesFragment();
+                txtToolbarTitle.setText(getResources().getString(R.string.ac_note));
+                //toolbar.setG
                 break;
             case R.id.nav_repeat:
                 fragment = new RepeatFragment();
+                txtToolbarTitle.setText(getResources().getString(R.string.ac_repeat));
                 break;
             case R.id.nav_payment:
                 fragment = new PaymentPlanFragment();
+                txtToolbarTitle.setText(getResources().getString(R.string.ac_payment));
                 break;
             case R.id.nav_setting:
                 fragment = new SettingFragment();
+                txtToolbarTitle.setText(getResources().getString(R.string.ac_setting));
                 break;
         }
 
