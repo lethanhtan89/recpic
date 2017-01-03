@@ -10,6 +10,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -57,6 +58,7 @@ public class NotesFragment extends Fragment implements NotesListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_note, container, false);
         init(view);
         return view;
@@ -107,6 +109,24 @@ public class NotesFragment extends Fragment implements NotesListener {
             Toast.makeText(getContext(), "Edit note successful", Toast.LENGTH_SHORT).show();
             loadDatabase();
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.menu_budget, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.budget_action_noti:
+                Toast.makeText(getContext(), "Noti Note", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
