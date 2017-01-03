@@ -157,10 +157,12 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.main_action_list) {
+            Toast.makeText(this, "List", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         if(id ==R.id.main_action_noti){
+            Toast.makeText(this, "Noti", Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -185,7 +187,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_home:
                 fragment = new HomeFragment();
                 txtToolbarTitle.setText(getResources().getString(R.string.ac_home));
-
                 break;
             case R.id.nav_budget:
                 fragment = new BudgetFragment();
