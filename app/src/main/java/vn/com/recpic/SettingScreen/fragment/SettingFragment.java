@@ -1,5 +1,6 @@
 package vn.com.recpic.SettingScreen.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,10 +10,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import vn.com.recpic.LoginScreen.activity.LoginActivity;
 import vn.com.recpic.R;
+import vn.com.recpic.database.MyFunctions;
 
 /**
  * Created by Administrator on 22/12/2016.
@@ -36,6 +40,18 @@ public class SettingFragment extends Fragment {
     private void init(View view){
         ToggleButton mTogAuto = (ToggleButton) view.findViewById(R.id.tog_auto_save_photo);
         mTogAuto.setText("");
+
+        TextView txtSignout = (TextView) view.findViewById(R.id.profile_sign_out);
+        txtSignout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyFunctions myFunctions= new MyFunctions(getContext());
+                myFunctions.logOut();
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
     }
 
     @Override

@@ -67,7 +67,7 @@ public class NotesFragment extends Fragment implements NotesListener {
     private void init(View view){
         LinearLayout lnAddNote = (LinearLayout) view.findViewById(R.id.ln_add_note);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.note_recycle_view);
-        registerForContextMenu(view);
+        registerForContextMenu(view.findViewById(R.id.note_recycle_view));
 
         lnAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +132,7 @@ public class NotesFragment extends Fragment implements NotesListener {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
+        AdapterContextMenuInfo info = (AdapterContextMenuInfo) menuInfo;
         MenuInflater inflater = getActivity().getMenuInflater();
         inflater.inflate(R.menu.menu_notes, menu);
     }
@@ -139,12 +140,16 @@ public class NotesFragment extends Fragment implements NotesListener {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+
         //final Notes notes = (Notes) mRecyclerView.getChildAdapterPosition(info.position);
         //long id = mRecyclerView.getChildItemId(info.position);
-        switch (item.getItemId()){
+        int id = item.getItemId();
+        switch (id){
             case R.id.no_remove:
+                Toast.makeText(getContext(), "Remove", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.no_edit:
+                Toast.makeText(getContext(), "Edit", Toast.LENGTH_SHORT).show();
                 break;
         }
 

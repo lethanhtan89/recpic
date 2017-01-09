@@ -24,6 +24,7 @@ repositories {
     maven { // this is for realm-db
         url 'http://oss.jfrog.org/artifactory/oss-snapshot-local'
     }
+    mavenCentral()
 }
 
 dependencies {
@@ -45,4 +46,11 @@ dependencies {
     compile 'com.android.support:design:25.1.0'
 
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.5'
+
+    compile 'com.loopj.android:android-async-http:1.4.6'
+    compile 'cz.msebera.android:httpclient:4.4.1.1'
+
+    compile 'com.facebook.android:facebook-android-sdk:4.6.0'
+
+
 }

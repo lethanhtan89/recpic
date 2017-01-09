@@ -128,7 +128,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="vertical"
-        android:background="@color/colorPrimary"
+        android:background="@color/login_button"
         android:layout_marginTop="10dp"
         android:layout_gravity="bottom">
         <TextView

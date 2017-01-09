@@ -25,17 +25,19 @@ import vn.com.recpic.AssetAnalyseScreen.fragment.AssetFragment;
 import vn.com.recpic.BudgetScreen.fragment.BudgetFragment;
 import vn.com.recpic.BudgetScreen.fragment.SubBudgetFragment;
 import vn.com.recpic.BudgetScreen.fragment.TotalBudgetFragment;
+import vn.com.recpic.HomeScreen.fragment.AddHomeFragment;
 import vn.com.recpic.HomeScreen.fragment.IncomeFragment;
 import vn.com.recpic.HomeScreen.fragment.HomeFragment;
+import vn.com.recpic.NoteScreen.activity.AddNoteActivity;
 import vn.com.recpic.NoteScreen.fragment.NotesFragment;
 import vn.com.recpic.PaymentPlanScreen.fragment.PaymentPlanFragment;
 import vn.com.recpic.ProfileScreen.ProfileActivity;
 import vn.com.recpic.R;
 import vn.com.recpic.RepeatRecordScreen.fragment.RepeatFragment;
 import vn.com.recpic.SettingScreen.fragment.SettingFragment;
+import vn.com.recpic.database.MyFunctions;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     // tags used to attach the fragments
     private static final String TAG_HOME = "home";
@@ -48,12 +50,13 @@ public class MainActivity extends AppCompatActivity
 
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
-    private FloatingActionButton fab, fab_edit, fab_photo, fab_copy, fab_search;
+    private FloatingActionButton fab, fab_add, fab_photo, fab_copy, fab_search;
     private boolean show = false;
     private View mNavigationHeader;
     private ImageView imgProfile;
     private TextView txtName, txtEmail, txtToolbarTitle;
     private Toolbar toolbar;
+    ActionBarDrawerToggle toggle;
 
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab_edit = (FloatingActionButton) findViewById(R.id.fab_edit);
+        fab_add = (FloatingActionButton) findViewById(R.id.fab_edit);
         fab_photo = (FloatingActionButton) findViewById(R.id.fab_cam);
         fab_copy = (FloatingActionButton) findViewById(R.id.fab_copy);
         fab_search = (FloatingActionButton) findViewById(R.id.fab_search);
@@ -82,9 +85,10 @@ public class MainActivity extends AppCompatActivity
         imgProfile = (ImageView) mNavigationHeader.findViewById(R.id.nav_imageView);
         txtToolbarTitle = (TextView) findViewById(R.id.toolbar_title);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        toggle = new ActionBarDrawerToggle(
                 this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.setDrawerListener(toggle);
+        mDrawerLayout.setScrimColor(R.color.white);
         toggle.syncState();
 
         if(mNavigationView != null){
@@ -94,7 +98,6 @@ public class MainActivity extends AppCompatActivity
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.containerView, new HomeFragment()).commit();
-        //toolbar.setTitle(getResources().getString(R.string.ac_home));
 
         clickFloating();
         mNavigationView.setNavigationItemSelectedListener(this);
@@ -114,8 +117,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void loadHeader(){
-        txtName.setText("Le Thanh Tan");
-        txtEmail.setText("lethanhtan89@gmail.com");
+        MyFunctions myFunctions= new MyFunctions(getApplicationContext());
+
+        txtName.setText("Tan Le");
+        txtEmail.setText(myFunctions.getEmail());
         imgProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,12 +155,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.main_action_list) {
             Toast.makeText(this, "List", Toast.LENGTH_SHORT).show();
             return true;
@@ -172,9 +172,7 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         displayView(id);
         return true;
     }
@@ -226,14 +224,14 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void showFloatingButton(){
-        fab_edit.show();
+        fab_add.show();
         fab_photo.show();
         fab_search.show();
         fab_copy.show();
     }
 
     private void hideFloatingButton(){
-        fab_edit.hide();
+        fab_add.hide();
         fab_photo.hide();
         fab_search.hide();
         fab_copy.hide();
@@ -255,10 +253,17 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        fab_edit.setOnClickListener(new View.OnClickListener() {
+        fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Edit", Toast.LENGTH_SHORT).show();
+//                mFragmentManager = getSupportFragmentManager();
+//                mFragmentTransaction = mFragmentManager.beginTransaction();
+//                mFragmentTransaction.replace(R.id.containerView, new AddHomeFragment()).commit();
+//                txtToolbarTitle.setText(getResources().getString(R.string.type_in));
+//                hideFloatingButton();
+//                fab.hide();
+                Intent intent = new Intent(getApplicationContext(), AddExpenseActivity.class);
+                startActivity(intent);
             }
         });
 
