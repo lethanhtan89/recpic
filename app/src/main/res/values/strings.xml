@@ -75,4 +75,42 @@
     <string name="ac_payment">PAYMENT PLAN</string>
     <string name="ac_setting">SETTINGS</string>
 
+    <string name="facebook_app_id">105524669953936</string>
+    <string name="type_in">TYPE IN</string>
+
+    <!--Add Expense-->
+    <string name="expense_food">Food</string>
+    <string name="expense_trans">Transportation</string>
+    <string name="expense_social">Social Life</string>
+    <string name="expense_house">Household</string>
+    <string name="expense_edu">Education</string>
+    <string name="expense_health">Health</string>
+    <string name="expense_travel">Travel &amp; Leisure</string>
+    <string name="expense_fashion">Fashion &amp; Beauty</string>
+    <string name="expense_Tax">Tax / Interest / Insurance</string>
+    <string name="expense_finance">Finance</string>
+    <string name="expense_residence">Residense / Communicate</string>
+    <string name="expense_business">Bussiness</string>
+    <string name="expense_discount">Discount</string>
+    <string name="expense_etc">Etc</string>
+
+    <string name="income_main">Main Income</string>
+    <string name="income_secondary">Secondary Income</string>
+    <string name="income_saving">Saving / Insurance</string>
+    <string name="income_loan">Loan</string>
+
+    <!--Add expense-->
+    <string name="ex_total">Total value (*)</string>
+    <string name="ex_receive">Receive method</string>
+    <string name="ex_detail_setting">DETAIL SETIING</string>
+    <string name="ex_product">Product name</string>
+    <string name="ex_payment">Single payment</string>
+    <string name="ex_col">Collapse</string>
+    <string name="ex_quatity">Quantity</string>
+    <string name="ex_no_repeat">No repeat</string>
+    <string name="ex_palce">Place</string>
+    <string name="ex_store">Store name</string>
+    <string name="ex_pay_method">Payment method</string>
+    <string name="ex_pru">Purveyance</string>
+    <string name="ex_memo">Memo</string>
 </resources>

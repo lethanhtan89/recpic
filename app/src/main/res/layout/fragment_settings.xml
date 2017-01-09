@@ -297,6 +297,7 @@
                 android:paddingBottom="15dp"
                 android:paddingTop="15dp">
                 <TextView
+                    android:id="@+id/profile_sign_out"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"

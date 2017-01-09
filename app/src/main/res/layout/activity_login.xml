@@ -25,12 +25,11 @@
             android:layout_marginBottom="30dp"
             android:layout_gravity="center"/>
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:background="@drawable/icon_fb" />
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
 
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -67,7 +66,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/input_name"
+                android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/icon_email_input"
@@ -84,7 +83,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/input_email"
+                android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -112,7 +111,7 @@
         android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/login_button"
         android:orientation="vertical">
 
         <TextView
