@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private LoginButton loginButton;
     private CallbackManager callbackManager;
+    private MyFunctions myFunctions;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,6 +58,13 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         AppEventsLogger.activateApp(getApplicationContext());
         setContentView(R.layout.activity_login);
+        myFunctions = new MyFunctions(getApplicationContext());
+
+        if(myFunctions.checkLogin() == true){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         lnLogin = (LinearLayout) findViewById(R.id.ln_Login);
         lnSignup = (LinearLayout) findViewById(R.id.ln_sign_up);
@@ -140,7 +148,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     class loginProgess extends AsyncTask<Void, Void, Integer>{
-        MyFunctions myFunctions;
         String email, password;
 
         @Override
@@ -160,7 +167,6 @@ public class LoginActivity extends AppCompatActivity {
             password = etPassword.getText().toString();
             Integer success= new Integer(0);
             try{
-                myFunctions = new MyFunctions(getApplicationContext());
                 JSONObject jsonObject = myFunctions.userLogin(email, password);
                 success = jsonObject.getInt(TAG_SUCCESS);
             }catch (Exception e){
