@@ -18,7 +18,7 @@
     <style name="Recpic.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="textAllCaps">true</item>
+        <item name="textAllCaps">false</item>
         <item name="android:textSize">14dp</item>
     </style>
     

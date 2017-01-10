@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-     android:background="@color/white">
+     android:background="@color/white"
+    android:weightSum="1">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,7 +19,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/boder_user_profile"
+                android:background="@color/expense_income_tab_bg"
                 android:orientation="vertical">
 
                 <android.support.v4.view.ViewPager
@@ -31,7 +33,7 @@
                     android:layout_height="35dp"
                     android:layout_alignParentBottom="true"
                     android:layout_gravity="top"
-                    android:background="@color/boder_user_profile"
+                    android:background="@color/expense_income_tab_bg"
                     android:gravity="center"
                     android:orientation="horizontal" />
 
@@ -119,13 +121,99 @@
                         android:layout_marginLeft="10dp"
                         android:layout_weight="0.5"
                         android:background="@drawable/edittext_boder"
-                        android:drawableRight="@drawable/icon_payment"
+                        android:drawableRight="@drawable/icon_single_payment"
                         android:gravity="center|left"
                         android:text="@string/ex_payment"
                         android:textSize="12dp" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/edittext_boder"
+                        android:drawableRight="@drawable/icon_quantity"
+                        android:gravity="center|left"
+                        android:text="@string/ex_quatity"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/edittext_boder"
+                        android:drawableRight="@drawable/icon_repeat"
+                        android:gravity="center|left"
+                        android:text="@string/ex_no_repeat"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/edittext_boder"
+                        android:drawableRight="@drawable/icon_location"
+                        android:gravity="center|left"
+                        android:text="@string/ex_palce"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/edittext_boder"
+                        android:drawableRight="@drawable/icon_store"
+                        android:gravity="center|left"
+                        android:text="@string/ex_store"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/edittext_boder"
+                        android:drawableRight="@drawable/icon_memo"
+                        android:gravity="center|left"
+                        android:text="@string/ex_memo"
+                        android:textSize="12dp" />
+                </LinearLayout>
             </LinearLayout>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/bt_detail_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/ln_add_note_ok"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:layout_gravity="bottom" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_done"/>
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -13,7 +13,10 @@
     <color name="fab_copy">#6699FF</color>
     <color name="fab_search">#333399</color>
 
+    <color name="tab_color">#FF0066</color>
+
     <color name="boder_user_profile">#DDDDDD</color>
+    <color name="expense_income_tab_bg">#EEEEEE</color>
 
     <color name="note_back_title">#EEEEEE</color>
     <color name="note_title">#999999</color>
@@ -51,4 +54,5 @@
         <item>@color/dot_dark_screen3</item>
         <item>@color/dot_dark_screen4</item>
     </array>
+    <color name="bt_ok">#FF3300</color>
 </resources>

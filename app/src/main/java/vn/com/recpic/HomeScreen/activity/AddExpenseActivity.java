@@ -44,6 +44,7 @@ public class AddExpenseActivity extends AppCompatActivity {
             setupViewPager(mViewPager);
         }
         mTabLayout.setTabMode(TabLayout.MODE_FIXED);
+        //mTabLayout.setTabTextColors(getResources().getColor(R.color.colorAccent), getResources().getColor(R.color.bg_screen2));\
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
@@ -66,19 +67,11 @@ public class AddExpenseActivity extends AppCompatActivity {
 
     private void setActionBar(){
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(getResources().getString(R.string.type_in));
-        actionBar.setHomeAsUpIndicator(R.drawable.icon_close);
-
-//        TextView tv = new TextView(getApplicationContext());
-//        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-//                RelativeLayout.LayoutParams.WRAP_CONTENT,
-//                RelativeLayout.LayoutParams.WRAP_CONTENT);
-//        tv.setGravity(Gravity.CENTER);
-//        tv.setText(getResources().getString(R.string.type_in));
-//        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//        actionBar.setCustomView(tv);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.hide();
+        //actionBar.setDisplayHomeAsUpEnabled(true);
+       // actionBar.setDisplayShowTitleEnabled(true);
+        //actionBar.setTitle(getResources().getString(R.string.type_in));
+        //ctionBar.setHomeAsUpIndicator(R.drawable.icon_close);
     }
 }
