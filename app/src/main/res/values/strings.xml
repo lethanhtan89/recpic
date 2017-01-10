@@ -103,10 +103,10 @@
     <string name="ex_total">Total value (*)</string>
     <string name="ex_receive">Receive method</string>
     <string name="ex_detail_setting">DETAIL SETIING</string>
-    <string name="ex_product">Product name</string>
+    <string name="ex_product">Product name </string>
     <string name="ex_payment">Single payment</string>
     <string name="ex_col">Collapse</string>
-    <string name="ex_quatity">Quantity</string>
+    <string name="ex_quatity">Quantity  </string>
     <string name="ex_no_repeat">No repeat</string>
     <string name="ex_palce">Place</string>
     <string name="ex_store">Store name</string>

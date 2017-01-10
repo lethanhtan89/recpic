@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,13 +22,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/education"
+                android:background="@drawable/main_income"
                 android:backgroundTint="@color/note_title" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/expense_edu"
+                android:text="@string/income_main"
                 android:layout_gravity="center"
                 android:textSize="10sp"
                 android:layout_marginTop="5dp"/>
@@ -47,11 +47,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/note_title"
-                android:background="@drawable/health"/>
+                android:background="@drawable/second_income"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/expense_health"
+                android:text="@string/income_secondary"
                 android:textSize="10sp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"/>
@@ -70,11 +70,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/note_title"
-                android:background="@drawable/travel"/>
+                android:background="@drawable/savings_in"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/expense_travel"
+                android:text="@string/income_saving"
                 android:textSize="10sp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"/>
@@ -93,14 +93,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/note_title"
-                android:background="@drawable/fashion"/>
+                android:background="@drawable/loan"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/expense_fashion"
+                android:text="@string/income_loan"
                 android:textSize="10sp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
+
