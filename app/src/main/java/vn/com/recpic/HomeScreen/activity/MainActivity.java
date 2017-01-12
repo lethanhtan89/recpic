@@ -193,6 +193,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_asset:
                 fragment = new AssetFragment();
                 txtToolbarTitle.setText(getResources().getString(R.string.ac_asset));
+                fab.hide();
                 break;
             case R.id.nav_note:
                 fragment = new NotesFragment();

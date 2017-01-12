@@ -88,12 +88,12 @@ public class AddIncomeFragment extends Fragment {
             dots[i] = new TextView(getContext());
             dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(getResources().getColor(R.color.note_title));
+            dots[i].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
             mDotLayout.addView(dots[i]);
         }
 
         if (dots.length > 0)
-            dots[currentPage].setTextColor(getResources().getColor(R.color.colorAccent));
+            dots[currentPage].setTextColor(getResources().getColor(R.color.login_button));
     }
 
     private void changeStatusBarColor() {
