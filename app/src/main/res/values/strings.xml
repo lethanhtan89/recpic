@@ -145,4 +145,13 @@
     <string name="ana_info_1">* 65 OLD PROPERTY PREDICTIONS ARE\n BASED ON THE ANALYSIS.</string>
     <string name="ana_info_2">* CAN DETERMINE THE FUTURE \n FLOW OF YOUR ASSETS.</string>
     <string name="ana_info_3">* THE RESULT WILL BE MADE IN THE \n BUDGET AND YOUR AVERATE SET OF \n DATA, REAL ASSETS AND ARE \n PLEASE TO INFORM YOU THAT \n THERE IS A DIFFERENCE.</string>
+    <string name="sms_title">Problem reading SMS data</string>
+    <string name="sms_info">Sorry, this sms data format is not currently \n supported in Recpic. \n Please report with card name and SMS \n content</string>
+    <string name="sms_report_now">Report now</string>
+    <string name="sms_cancel">Cancel</string>
+    <string name="send_email_to_repic">SEND EMAIL TO THE RECPIC</string>
+    <string name="send_title">Briefly explain what happened</string>
+    <string name="send_info">We\' will revise your report and reply to your email as
+    soon as possible. Thank you very much for talking your  time to report</string>
+
 </resources>

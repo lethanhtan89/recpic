@@ -8,8 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import vn.com.recpic.AssetAnalyseScreen.dialog.AnalysisHelpDialogFragment;
+import vn.com.recpic.AssetAnalyseScreen.dialog.PersonalHelpDialogFragment;
 import vn.com.recpic.R;
 
 /**

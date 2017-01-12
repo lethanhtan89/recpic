@@ -21,10 +21,7 @@
         android:fitsSystemWindows="true"
         tools:openDrawer="start">
 
-        <include
-            layout="@layout/app_bar_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+
 
         <FrameLayout
             android:orientation="vertical"
@@ -32,6 +29,10 @@
             android:layout_height="match_parent"
             android:id="@+id/containerView">
         </FrameLayout>
+        <include
+            layout="@layout/layout_fab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
@@ -44,6 +45,8 @@
             app:itemIconTint="@color/white"
             app:headerLayout="@layout/layout_nav_header"
             app:menu="@menu/menu_main_drawer" />
+
+
 
     </android.support.v4.widget.DrawerLayout>
 
