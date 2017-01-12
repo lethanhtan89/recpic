@@ -193,13 +193,16 @@
                         android:text="@string/ex_memo"
                         android:textSize="12dp" />
                 </LinearLayout>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/bt_detail_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/bt_detail_setting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+            <include layout="@layout/include_fragment_bottom_expense" />
+
         </LinearLayout>
     </ScrollView>
 

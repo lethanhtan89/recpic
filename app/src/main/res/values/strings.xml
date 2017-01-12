@@ -113,4 +113,36 @@
     <string name="ex_pay_method">Payment method</string>
     <string name="ex_pru">Purveyance</string>
     <string name="ex_memo">Memo</string>
+    <!--Asset Analysis-->
+    <string name="per_info">Personal infomation</string>
+    <string name="per_age">Age</string>
+    <string name="per_gender">Gender</string>
+    <string name="asset_analysis">asset analysis</string>
+    <string name="per_content">
+        ASSET ANALYSIS IS BASED ON YOUR AGE AND \nGENDER OF THE GRAPH REPRESENTS THE \n
+        AVERAGE PROPERTY UP TO 65 YEARS \n\n\n
+        INITIAL DATA ARE ALL BASED ON STATISTICS \n
+        SHOWING THE AVERAGE AMOUT\n\n\n
+        LOOK AT THE GRAPH OF YOUR OWN PROPETY IF\n
+        YOU WANT ME THEN TRY TO MODIFY SAW THE AVERAGE
+    </string>
+    <string name="per_content_con">ASSET ANALYSIS FEATURE IS CURRENTLY IN BETA \n\n
+                                    THE DATA CREATED BASED ON THE AVERAGE VALUE, \n
+                                    ENTER THE USER\'S PERSONAL DATA TO GET A MORE\n
+                                    ACCURATE RESULT
+    </string>
+    <string name="per_load">Load data</string>
+
+    <string name="per_dialog_help">Personal information HELP</string>
+    <string name="per_dialog_info_1">* THE AGE AND GENDER CAN BE \n
+                                    EDITED IN THE SETTINGS</string>
+    <string name="per_dialog_info_2">* PLEASE ENTER ACCURATE \n
+                                    INFORMATION FOR BETTER\n
+                                    ANALYSIS
+    </string>
+    <string name="per_dialog_confirm">Confirm</string>
+    <string name="ana_dialog_help">Asset Analysis HELP</string>
+    <string name="ana_info_1">* 65 OLD PROPERTY PREDICTIONS ARE\n BASED ON THE ANALYSIS.</string>
+    <string name="ana_info_2">* CAN DETERMINE THE FUTURE \n FLOW OF YOUR ASSETS.</string>
+    <string name="ana_info_3">* THE RESULT WILL BE MADE IN THE \n BUDGET AND YOUR AVERATE SET OF \n DATA, REAL ASSETS AND ARE \n PLEASE TO INFORM YOU THAT \n THERE IS A DIFFERENCE.</string>
 </resources>

@@ -15,7 +15,7 @@
 
     <color name="tab_color">#FF0066</color>
 
-    <color name="boder_user_profile">#DDDDDD</color>
+    <color name="boder_user_profile">#ebe9e9</color>
     <color name="expense_income_tab_bg">#EEEEEE</color>
 
     <color name="note_back_title">#EEEEEE</color>
@@ -55,4 +55,6 @@
         <item>@color/dot_dark_screen4</item>
     </array>
     <color name="bt_ok">#FF3300</color>
+    <color name="bg_asset">#e7f3f5</color>
+    <color name="per_text">#f17575</color>
 </resources>

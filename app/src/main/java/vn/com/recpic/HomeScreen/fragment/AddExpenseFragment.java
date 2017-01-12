@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
@@ -62,22 +63,39 @@ public class AddExpenseFragment extends BottomSheetDialogFragment {
     }
 
     private void init(View view){
-       // mCoordinatorLayout = (CoordinatorLayout) view.findViewById(R.id.coor_expense_content);
         mViewPager = (ViewPager) view.findViewById(R.id.add_expense_view_pager);
         mDotLayout = (LinearLayout) view.findViewById(R.id.layoutDots);
         mDetailSetings = (FloatingActionButton) view.findViewById(R.id.bt_detail_setting);
-        //LinearLayout lnMemo = (LinearLayout) view.findViewById(R.id.ln_memo);
-       // mNestedScrollView = (NestedScrollView) getActivity().findViewById(R.id.nested_expense);
-       // BottomSheetDialog dialog = (BottomSheetDialog) getDialog();
-        //mNestExpense = getActivity().findViewById(R.id.nested_expense);
+//        LinearLayout llBottomSheet = (LinearLayout) view.findViewById(R.id.bottom_sheet);
+//        final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet);
+//
+//        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+//        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+//        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+//
+//        bottomSheetBehavior.setPeekHeight(340);
+//
+//        bottomSheetBehavior.setHideable(false);
+//
+//        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+//            @Override
+//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+//
+//            }
+//
+//            @Override
+//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+//
+//            }
+//        });
 
-        //mSheetBehavior = BottomSheetBehavior.from(mNestedScrollView);
+
 
         mDetailSetings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BottomSheetDialogFragment fragment = new ExpenseBottomSheetDialogFragment();
-                fragment.show(getChildFragmentManager(), fragment.getTag());
+               // BottomSheetDialogFragment fragment = new ExpenseBottomSheetDialogFragment();
+                //fragment.show(getChildFragmentManager(), fragment.getTag());
                 //               mSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
 //                if(behavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
 //                    behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
@@ -93,8 +111,6 @@ public class AddExpenseFragment extends BottomSheetDialogFragment {
                 R.layout.tab_add_expense_four
         };
 
-//        TextView textView = (TextView) view.findViewById(R.id.editText);
-//        textView.setCompoundDrawablesWithIntrinsicBounds(0,0, R.drawable.icon_home, 0);
 
         addBottomDots(0);
         changeStatusBarColor();
@@ -111,12 +127,12 @@ public class AddExpenseFragment extends BottomSheetDialogFragment {
             dots[i] = new TextView(getContext());
             dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(35);
-            dots[i].setTextColor(getResources().getColor(R.color.note_title));
+            dots[i].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
             mDotLayout.addView(dots[i]);
         }
 
         if (dots.length > 0)
-            dots[currentPage].setTextColor(getResources().getColor(R.color.colorAccent));
+            dots[currentPage].setTextColor(getResources().getColor(R.color.login_button));
     }
 
     ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
