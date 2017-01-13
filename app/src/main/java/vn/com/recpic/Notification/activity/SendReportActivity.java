@@ -25,9 +25,7 @@ public class SendReportActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.send_email_to_repic));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-    }
+ }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -45,5 +43,12 @@ public class SendReportActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 }

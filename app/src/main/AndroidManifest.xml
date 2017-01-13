@@ -40,6 +40,11 @@
         <activity
             android:name=".Notification.activity.SendReportActivity" android:screenOrientation="portrait"
             android:theme="@style/Recpic.NoActionBar" android:parentActivityName=".HomeScreen.activity.MainActivity"/>
+        <activity android:name=".SearchScreen.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <activity android:name=".SearchScreen.activity.SearchLocationActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
 
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=

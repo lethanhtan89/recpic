@@ -32,6 +32,7 @@ import vn.com.recpic.PaymentPlanScreen.fragment.PaymentPlanFragment;
 import vn.com.recpic.ProfileScreen.ProfileActivity;
 import vn.com.recpic.R;
 import vn.com.recpic.RepeatRecordScreen.fragment.RepeatFragment;
+import vn.com.recpic.SearchScreen.activity.SearchActivity;
 import vn.com.recpic.SettingScreen.fragment.SettingFragment;
 import vn.com.recpic.database.MyFunctions;
 
@@ -285,7 +286,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Search", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                startActivity(intent);
             }
         });
     }

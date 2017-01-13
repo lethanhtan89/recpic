@@ -153,5 +153,37 @@
     <string name="send_title">Briefly explain what happened</string>
     <string name="send_info">We\' will revise your report and reply to your email as
     soon as possible. Thank you very much for talking your  time to report</string>
-
+    <string name="search_history">My history</string>
+    <string name="search_price">Compare price</string>
+    <string name="search_enter">Enter keyword to search</string>
+    <string name="search_loation">Please enter your location</string>
+    <string name="search_all">All</string>
+    <string name="search_pro">Product</string>
+    <string name="search_store">Store</string>
+    <string name="search_memo">Memo</string>
+    <string name="search_address">Address</string>
+    <string name="search_low">Lowest</string>
+    <string name="search_high">Highest</string>
+    <string name="search_range">Range</string>
+    <string name="search_dis">Distance</string>
+    <string name="search_close">Close</string>
+    <string name="search_far">Far</string>
+    <string name="search_po">Popular</string>
+    <string name="search_unpo">Unpopular</string>
+    <string name="search_date">Date</string>
+    <string name="search_recent">Recent</string>
+    <string name="search_old">Old</string>
+    <string name="search_your_address">Search your address</string>
+    <string name="search_result_his">RESULT BASED ON MY RECORDS</string>
+    <string name="search_result_price">RESULT BASED ON REPIC\'S RECORDS</string>
+    <string name="search_total">Total</string>
+    <string name="search_amount">Amount</string>
+    <string name="search_pri">Rice</string>
+    <string name="search_discover">Discover items around you</string>
+    <string name="search_expense">Discover your expense</string>
+    <string name="search_location">SEARCH FOR LOCATION</string>
+    <string name="location_use_current">Use current location</string>
+    <string name="location_address">Use profile address</string>
+    <string name="location_note">Please add your favourite locations by clicking star icon next to the address</string>
+    <string name="location_enter">Enter your location</string>
 </resources>
