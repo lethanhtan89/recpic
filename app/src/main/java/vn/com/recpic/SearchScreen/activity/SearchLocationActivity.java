@@ -73,6 +73,12 @@ public class SearchLocationActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        int id = item.getItemId();
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                break;
+        }
+        return true;
     }
 }

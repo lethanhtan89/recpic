@@ -28,6 +28,7 @@ import vn.com.recpic.BudgetScreen.fragment.BudgetFragment;
 import vn.com.recpic.HomeScreen.fragment.HomeFragment;
 import vn.com.recpic.NoteScreen.fragment.NotesFragment;
 import vn.com.recpic.Notification.dialog.SmsDialogFragment;
+import vn.com.recpic.Notification.fragment.NofiticationFragment;
 import vn.com.recpic.PaymentPlanScreen.fragment.PaymentPlanFragment;
 import vn.com.recpic.ProfileScreen.ProfileActivity;
 import vn.com.recpic.R;
@@ -166,7 +167,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         if(id ==R.id.main_action_noti){
-            Toast.makeText(this, "Noti", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Noti", Toast.LENGTH_SHORT).show();
+            mFragmentManager = getSupportFragmentManager();
+            mFragmentTransaction = mFragmentManager.beginTransaction();
+            mFragmentTransaction.replace(R.id.containerView, new NofiticationFragment()).commit();
+            txtToolbarTitle.setText(getResources().getString(R.string.ac_noti));
             return true;
         }
 

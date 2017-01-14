@@ -74,6 +74,7 @@
     <string name="ac_repeat">REPEAT RECORDS</string>
     <string name="ac_payment">PAYMENT PLAN</string>
     <string name="ac_setting">SETTINGS</string>
+    <string name="ac_noti">NOTIFICATION</string>
 
     <string name="facebook_app_id">105524669953936</string>
     <string name="type_in">TYPE IN</string>
@@ -186,4 +187,9 @@
     <string name="location_address">Use profile address</string>
     <string name="location_note">Please add your favourite locations by clicking star icon next to the address</string>
     <string name="location_enter">Enter your location</string>
+    <string name="noti_news">News</string>
+    <string name="noti_pen">Pending</string>
+    <string name="noti_re">Rejected</string>
+    <string name="noti_com">Completed</string>
+    <string name="noti_his">History</string>
 </resources>

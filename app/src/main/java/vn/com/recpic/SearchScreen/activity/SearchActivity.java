@@ -75,6 +75,8 @@ public class SearchActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id){
+            case android.R.id.home:
+                onBackPressed();
             case R.id.search_bookmark:
                 Toast.makeText(getApplicationContext(), "Search bookmark", Toast.LENGTH_SHORT).show();
                 break;

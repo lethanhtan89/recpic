@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,9 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import vn.com.recpic.AssetAnalyseScreen.adapter.AssetFragmentAdapter;
-import vn.com.recpic.BudgetScreen.adapter.BudgetFragmentAdapter;
-import vn.com.recpic.BudgetScreen.fragment.SubBudgetFragment;
-import vn.com.recpic.BudgetScreen.fragment.TotalBudgetFragment;
+import vn.com.recpic.Notification.fragment.NofiticationFragment;
 import vn.com.recpic.R;
 
 /**
@@ -31,7 +31,7 @@ public class AssetFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.tab_layout_asset, null);
+        View view = inflater.inflate(R.layout.fragment_layout_asset, null);
         mTabLayout = (TabLayout) view.findViewById(R.id.tab_asset);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager_asset);
 
@@ -64,7 +64,9 @@ public class AssetFragment extends Fragment {
         int id = item.getItemId();
         switch (id){
             case R.id.budget_action_noti:
-                Toast.makeText(getContext(), "Noti Asset", Toast.LENGTH_SHORT).show();
+                FragmentManager mFragmentManager = getFragmentManager();
+                FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
+                mFragmentTransaction.replace(R.id.containerView, new NofiticationFragment()).commit();
                 break;
         }
         return super.onOptionsItemSelected(item);
