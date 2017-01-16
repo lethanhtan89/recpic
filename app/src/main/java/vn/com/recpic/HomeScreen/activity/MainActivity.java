@@ -167,7 +167,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         if(id ==R.id.main_action_noti){
-            //Toast.makeText(this, "Noti", Toast.LENGTH_SHORT).show();
             mFragmentManager = getSupportFragmentManager();
             mFragmentTransaction = mFragmentManager.beginTransaction();
             mFragmentTransaction.replace(R.id.containerView, new NofiticationFragment()).commit();

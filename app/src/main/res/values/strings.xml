@@ -192,4 +192,21 @@
     <string name="noti_re">Rejected</string>
     <string name="noti_com">Completed</string>
     <string name="noti_his">History</string>
+    <string name="repeat_dialog">
+        GUIDANCE
+    </string>
+    <string name="repeat_dialog_info">
+        * 02.01 version of the previous data remains. \n\n
+        * 02.01 version after th input data is deleted when deleting anay repeating data. \n\n
+        * Repeat setting of a data for the next spending period is entered.\n\n
+    </string>
+    <string name="payment_dialog_info">
+        * HOME-EXPENSE recotds that has payment plan could be edited only in menu-card payment setting.\n\n
+        * Payment plan can be created when the receipt has payment plane, and the user enter payment plan in "type in" feature. \n\n
+        * When there are more than 2 products in a receipt, editing one product will be applied to all the products that belongs to the receipt. \n\n
+        * When the payment plan is not done, no more records belong to the payment plane will be written. \n\n
+        * If the payment plan is not done, the expense record will be written as below. \n\n
+        * If 3 months payment plan has begin in January 10th and the user delete record in payment plan list on February 13th, then January and February reords will still be existed and the record will not be showed form Marth.\n\n
+
+    </string>
 </resources>

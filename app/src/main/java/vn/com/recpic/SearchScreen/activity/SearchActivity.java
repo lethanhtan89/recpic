@@ -39,13 +39,13 @@ public class SearchActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(" ");
         txtToolbarSearch = (TextView) findViewById(R.id.txtToolBarSearch);
         txtToolbarSearch.setText("< 2017 / 01 >");
-//        fab_Search = (FloatingActionButton) findViewById(R.id.fab_search);
-//        fab_Search.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getApplicationContext(), "Search", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        fab_Search = (FloatingActionButton) findViewById(R.id.fab_scroll_search);
+        fab_Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Search", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         mTabLayout = (TabLayout) findViewById(R.id.search_tab);
         mViewPager = (ViewPager) findViewById(R.id.search_viewpager);
