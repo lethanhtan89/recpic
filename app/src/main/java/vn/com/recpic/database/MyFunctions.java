@@ -18,8 +18,8 @@ import cz.msebera.android.httpclient.message.BasicNameValuePair;
 public class MyFunctions {
     JSONParser jsonParser;
     private static final String TAG = "tag";
-    private static final String loginUrl = "http://192.168.0.26/web_android/index.php";
-    private static final String regiterUrl = "http://192.168.0.26/web_android/index.php";
+    private static final String loginUrl = "http://192.168.0.35/web_android/index.php";
+    private static final String regiterUrl = "http://192.0.10.35/web_android/index.php";
     private static final String TAG_NAME = "name";
     private static final String TAG_EMAIL = "email";
     private static final String TAG_PASSWORD = "password";

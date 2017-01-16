@@ -74,6 +74,7 @@
     <string name="ac_repeat">REPEAT RECORDS</string>
     <string name="ac_payment">PAYMENT PLAN</string>
     <string name="ac_setting">SETTINGS</string>
+    <string name="ac_noti">NOTIFICATION</string>
 
     <string name="facebook_app_id">105524669953936</string>
     <string name="type_in">TYPE IN</string>
@@ -145,4 +146,67 @@
     <string name="ana_info_1">* 65 OLD PROPERTY PREDICTIONS ARE\n BASED ON THE ANALYSIS.</string>
     <string name="ana_info_2">* CAN DETERMINE THE FUTURE \n FLOW OF YOUR ASSETS.</string>
     <string name="ana_info_3">* THE RESULT WILL BE MADE IN THE \n BUDGET AND YOUR AVERATE SET OF \n DATA, REAL ASSETS AND ARE \n PLEASE TO INFORM YOU THAT \n THERE IS A DIFFERENCE.</string>
+    <string name="sms_title">Problem reading SMS data</string>
+    <string name="sms_info">Sorry, this sms data format is not currently \n supported in Recpic. \n Please report with card name and SMS \n content</string>
+    <string name="sms_report_now">Report now</string>
+    <string name="sms_cancel">Cancel</string>
+    <string name="send_email_to_repic">SEND EMAIL TO THE RECPIC</string>
+    <string name="send_title">Briefly explain what happened</string>
+    <string name="send_info">We\' will revise your report and reply to your email as
+    soon as possible. Thank you very much for talking your  time to report</string>
+    <string name="search_history">My history</string>
+    <string name="search_price">Compare price</string>
+    <string name="search_enter">Enter keyword to search</string>
+    <string name="search_loation">Please enter your location</string>
+    <string name="search_all">All</string>
+    <string name="search_pro">Product</string>
+    <string name="search_store">Store</string>
+    <string name="search_memo">Memo</string>
+    <string name="search_address">Address</string>
+    <string name="search_low">Lowest</string>
+    <string name="search_high">Highest</string>
+    <string name="search_range">Range</string>
+    <string name="search_dis">Distance</string>
+    <string name="search_close">Close</string>
+    <string name="search_far">Far</string>
+    <string name="search_po">Popular</string>
+    <string name="search_unpo">Unpopular</string>
+    <string name="search_date">Date</string>
+    <string name="search_recent">Recent</string>
+    <string name="search_old">Old</string>
+    <string name="search_your_address">Search your address</string>
+    <string name="search_result_his">RESULT BASED ON MY RECORDS</string>
+    <string name="search_result_price">RESULT BASED ON REPIC\'S RECORDS</string>
+    <string name="search_total">Total</string>
+    <string name="search_amount">Amount</string>
+    <string name="search_pri">Rice</string>
+    <string name="search_discover">Discover items around you</string>
+    <string name="search_expense">Discover your expense</string>
+    <string name="search_location">SEARCH FOR LOCATION</string>
+    <string name="location_use_current">Use current location</string>
+    <string name="location_address">Use profile address</string>
+    <string name="location_note">Please add your favourite locations by clicking star icon next to the address</string>
+    <string name="location_enter">Enter your location</string>
+    <string name="noti_news">News</string>
+    <string name="noti_pen">Pending</string>
+    <string name="noti_re">Rejected</string>
+    <string name="noti_com">Completed</string>
+    <string name="noti_his">History</string>
+    <string name="repeat_dialog">
+        GUIDANCE
+    </string>
+    <string name="repeat_dialog_info">
+        * 02.01 version of the previous data remains. \n\n
+        * 02.01 version after th input data is deleted when deleting anay repeating data. \n\n
+        * Repeat setting of a data for the next spending period is entered.\n\n
+    </string>
+    <string name="payment_dialog_info">
+        * HOME-EXPENSE recotds that has payment plan could be edited only in menu-card payment setting.\n\n
+        * Payment plan can be created when the receipt has payment plane, and the user enter payment plan in "type in" feature. \n\n
+        * When there are more than 2 products in a receipt, editing one product will be applied to all the products that belongs to the receipt. \n\n
+        * When the payment plan is not done, no more records belong to the payment plane will be written. \n\n
+        * If the payment plan is not done, the expense record will be written as below. \n\n
+        * If 3 months payment plan has begin in January 10th and the user delete record in payment plan list on February 13th, then January and February reords will still be existed and the record will not be showed form Marth.\n\n
+
+    </string>
 </resources>

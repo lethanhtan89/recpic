@@ -32,7 +32,7 @@ public class AddHomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.tab_layout_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_layout_home, container, false);
         mTabLayout = (TabLayout) view.findViewById(R.id.tab_home);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager_home);
         if(mViewPager != null){

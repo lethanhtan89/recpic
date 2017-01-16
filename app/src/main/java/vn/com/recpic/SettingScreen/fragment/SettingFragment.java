@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import vn.com.recpic.LoginScreen.activity.LoginActivity;
+import vn.com.recpic.Notification.fragment.NofiticationFragment;
 import vn.com.recpic.R;
 import vn.com.recpic.database.MyFunctions;
 
@@ -66,7 +69,9 @@ public class SettingFragment extends Fragment {
         int id = item.getItemId();
         switch (id){
             case R.id.budget_action_noti:
-                Toast.makeText(getContext(), "noti Setting", Toast.LENGTH_SHORT).show();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.containerView, new NofiticationFragment()).commit();
                 break;
         }
         return super.onOptionsItemSelected(item);

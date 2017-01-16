@@ -2,6 +2,7 @@ package vn.com.recpic.RepeatRecordScreen.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import vn.com.recpic.R;
+import vn.com.recpic.RepeatRecordScreen.dialog.RepeatRecordDialogFragment;
 
 /**
  * Created by Administrator on 22/12/2016.
@@ -44,7 +46,8 @@ public class RepeatFragment extends Fragment {
         int id = item.getItemId();
         switch (id){
             case R.id.repeat_action_info:
-                Toast.makeText(getContext(), "Repeat info", Toast.LENGTH_SHORT).show();
+                DialogFragment fragment = new RepeatRecordDialogFragment();
+                fragment.show(getFragmentManager(), fragment.getTag());
                 break;
         }
         return super.onOptionsItemSelected(item);

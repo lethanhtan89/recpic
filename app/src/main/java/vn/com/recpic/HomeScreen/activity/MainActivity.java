@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 
 import android.support.v4.app.FragmentManager;
@@ -17,23 +18,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import vn.com.recpic.AssetAnalyseScreen.fragment.AssetFragment;
 import vn.com.recpic.BudgetScreen.fragment.BudgetFragment;
-import vn.com.recpic.BudgetScreen.fragment.SubBudgetFragment;
-import vn.com.recpic.BudgetScreen.fragment.TotalBudgetFragment;
-import vn.com.recpic.HomeScreen.fragment.AddHomeFragment;
-import vn.com.recpic.HomeScreen.fragment.IncomeFragment;
 import vn.com.recpic.HomeScreen.fragment.HomeFragment;
-import vn.com.recpic.NoteScreen.activity.AddNoteActivity;
 import vn.com.recpic.NoteScreen.fragment.NotesFragment;
+import vn.com.recpic.Notification.dialog.SmsDialogFragment;
+import vn.com.recpic.Notification.fragment.NofiticationFragment;
 import vn.com.recpic.PaymentPlanScreen.fragment.PaymentPlanFragment;
 import vn.com.recpic.ProfileScreen.ProfileActivity;
 import vn.com.recpic.R;
 import vn.com.recpic.RepeatRecordScreen.fragment.RepeatFragment;
+import vn.com.recpic.SearchScreen.activity.SearchActivity;
 import vn.com.recpic.SettingScreen.fragment.SettingFragment;
 import vn.com.recpic.database.MyFunctions;
 
@@ -50,13 +50,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
-    private FloatingActionButton fab, fab_add, fab_photo, fab_copy, fab_search;
+    private FloatingActionButton fab, fab_add, fab_cam, fab_sms, fab_search;
     private boolean show = false;
     private View mNavigationHeader;
     private ImageView imgProfile;
     private TextView txtName, txtEmail, txtToolbarTitle;
     private Toolbar toolbar;
     ActionBarDrawerToggle toggle;
+    private FrameLayout mFabFrameLayout;
 
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
@@ -65,18 +66,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+
+    }
+
+    private void init(){
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab_add = (FloatingActionButton) findViewById(R.id.fab_edit);
-        fab_photo = (FloatingActionButton) findViewById(R.id.fab_cam);
-        fab_copy = (FloatingActionButton) findViewById(R.id.fab_copy);
-        fab_search = (FloatingActionButton) findViewById(R.id.fab_search);
 
         //Set Navigation View Header
         mNavigationHeader = mNavigationView.getHeaderView(0);
@@ -94,14 +94,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(mNavigationView != null){
             setupDrawerContent(mNavigationView);
         }
+        mFabFrameLayout = (FrameLayout) findViewById(R.id.fr_fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab_add = (FloatingActionButton) findViewById(R.id.fab_add);
+        fab_cam = (FloatingActionButton) findViewById(R.id.fab_camera);
+        fab_sms = (FloatingActionButton) findViewById(R.id.fab_send_sms);
+        fab_search = (FloatingActionButton) findViewById(R.id.fab_search);
 
         mFragmentManager = getSupportFragmentManager();
         mFragmentTransaction = mFragmentManager.beginTransaction();
         mFragmentTransaction.replace(R.id.containerView, new HomeFragment()).commit();
-
-        clickFloating();
         mNavigationView.setNavigationItemSelectedListener(this);
         loadHeader();
+        actionFloating();
         hideFloatingButton();
     }
 
@@ -162,7 +167,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         if(id ==R.id.main_action_noti){
-            Toast.makeText(this, "Noti", Toast.LENGTH_SHORT).show();
+            mFragmentManager = getSupportFragmentManager();
+            mFragmentTransaction = mFragmentManager.beginTransaction();
+            mFragmentTransaction.replace(R.id.containerView, new NofiticationFragment()).commit();
+            txtToolbarTitle.setText(getResources().getString(R.string.ac_noti));
             return true;
         }
 
@@ -226,25 +234,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void showFloatingButton(){
         fab_add.show();
-        fab_photo.show();
+        fab_cam.show();
+        fab_sms.show();
         fab_search.show();
-        fab_copy.show();
     }
 
     private void hideFloatingButton(){
         fab_add.hide();
-        fab_photo.hide();
+        fab_cam.hide();
+        fab_sms.hide();
         fab_search.hide();
-        fab_copy.hide();
     }
 
-    private void clickFloating(){
+    private void actionFloating(){
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(show == false){
                     showFloatingButton();
                     show = true;
+                    //mFabFrameLayout.setBackground(getResources().getDrawable(R.drawable.fab_shadow));
                     fab.setImageResource(R.drawable.icon_close);
                 }else {
                     hideFloatingButton();
@@ -257,35 +266,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                mFragmentManager = getSupportFragmentManager();
-//                mFragmentTransaction = mFragmentManager.beginTransaction();
-//                mFragmentTransaction.replace(R.id.containerView, new AddHomeFragment()).commit();
-//                txtToolbarTitle.setText(getResources().getString(R.string.type_in));
-//                hideFloatingButton();
-//                fab.hide();
-                Intent intent = new Intent(getApplicationContext(), AddExpenseActivity.class);
-                startActivity(intent);
+             Intent intent = new Intent(getApplicationContext(), AddExpenseActivity.class);
+             startActivity(intent);
             }
         });
 
-        fab_copy.setOnClickListener(new View.OnClickListener() {
+        fab_cam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Copy", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Camera", Toast.LENGTH_SHORT).show();
             }
         });
 
-        fab_photo.setOnClickListener(new View.OnClickListener() {
+        fab_sms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Photo", Toast.LENGTH_SHORT).show();
+                DialogFragment fragment = new SmsDialogFragment();
+                fragment.show(getSupportFragmentManager(), fragment.getTag());
             }
         });
+
 
         fab_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Search", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                startActivity(intent);
             }
         });
     }

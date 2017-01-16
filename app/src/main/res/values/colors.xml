@@ -18,6 +18,8 @@
     <color name="boder_user_profile">#ebe9e9</color>
     <color name="expense_income_tab_bg">#EEEEEE</color>
 
+    <color name="search_location">#CCCCCC</color>
+
     <color name="note_back_title">#EEEEEE</color>
     <color name="note_title">#999999</color>
     <color name="login_button">#F78181</color>

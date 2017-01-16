@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +30,7 @@ import vn.com.recpic.NoteScreen.activity.EditNoteActivity;
 import vn.com.recpic.NoteScreen.adapter.NotesApdapter;
 import vn.com.recpic.NoteScreen.listener.NotesListener;
 import vn.com.recpic.NoteScreen.model.Notes;
+import vn.com.recpic.Notification.fragment.NofiticationFragment;
 import vn.com.recpic.R;
 import vn.com.recpic.database.DataBaseHelper;
 
@@ -123,7 +126,9 @@ public class NotesFragment extends Fragment implements NotesListener {
         int id = item.getItemId();
         switch (id){
             case R.id.budget_action_noti:
-                Toast.makeText(getContext(), "Noti Note", Toast.LENGTH_SHORT).show();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.containerView, new NofiticationFragment()).commit();
                 break;
         }
         return super.onOptionsItemSelected(item);

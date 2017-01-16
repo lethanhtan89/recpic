@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".HomeScreen.activity.MainActivity">
+    tools:context=".HomeScreen.activity.MainActivity"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_asset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Recpic.AppBarOverlay"
@@ -17,24 +17,29 @@
         tools:layout_editor_absoluteX="8dp">
 
         <android.support.design.widget.TabLayout
-            android:id="@+id/tab_asset"
-            app:tabTextAppearance="@style/TabTextAppearance"
+            android:id="@+id/tab_info"
+            app:tabTextAppearance="@style/TabTextAppearanceNoti"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:tabTextColor="#d3d3d3"
-            app:tabSelectedTextColor="@color/colorPrimary"
-            app:tabIndicatorColor="@color/colorPrimary"
-            />
+            android:layout_height="50dp"
+            android:background="@color/boder_user_profile"
+            app:tabTextColor="#BBBBBB"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            app:tabBackground="@drawable/bg_notification"
+            app:tabSelectedTextColor="@color/white"
+            app:tabIndicatorColor="@color/boder_user_profile" />
+
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager_asset"
+        android:id="@+id/viewpager_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/app_asset"
+        android:background="@color/boder_user_profile"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp" />
 
-</RelativeLayout>
+</LinearLayout>

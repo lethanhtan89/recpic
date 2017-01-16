@@ -21,6 +21,11 @@
         <item name="textAllCaps">false</item>
         <item name="android:textSize">14dp</item>
     </style>
+
+    <style name="TabTextAppearanceNoti" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">9dp</item>
+    </style>
     
     <style name="EditTextStyle" parent="Base.TextAppearance.AppCompat">
         <item name="colorAccent">@color/fab_cam</item>

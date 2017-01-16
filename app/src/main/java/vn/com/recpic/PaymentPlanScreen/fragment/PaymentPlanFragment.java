@@ -2,6 +2,7 @@ package vn.com.recpic.PaymentPlanScreen.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import vn.com.recpic.PaymentPlanScreen.dialog.PaymentPlanDialogFragment;
 import vn.com.recpic.R;
 
 /**
@@ -52,7 +54,8 @@ public class PaymentPlanFragment extends Fragment {
         int id = item.getItemId();
         switch (id){
             case R.id.repeat_action_info:
-                Toast.makeText(getContext(), "Plan info", Toast.LENGTH_SHORT).show();
+                DialogFragment fragment = new PaymentPlanDialogFragment();
+                fragment.show(getFragmentManager(), fragment.getTag());
                 break;
         }
         return super.onOptionsItemSelected(item);
