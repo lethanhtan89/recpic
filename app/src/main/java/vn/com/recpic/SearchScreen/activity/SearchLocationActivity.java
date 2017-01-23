@@ -44,7 +44,6 @@ public class SearchLocationActivity extends AppCompatActivity {
         txtToolbarSearch = (TextView) findViewById(R.id.txtToolBarSearchLocation);
         txtToolbarSearch.setText(getResources().getString(R.string.search_location));
 
-
         mTabLayout = (TabLayout) findViewById(R.id.search_location_tab);
         mViewPager = (ViewPager) findViewById(R.id.search_location_viewpager);
 
@@ -52,8 +51,6 @@ public class SearchLocationActivity extends AppCompatActivity {
             setupViewPager(mViewPager);
         }
 
-//        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
-//        mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.getTabAt(0).setIcon(tabIcons[0]);
         mTabLayout.getTabAt(1).setIcon(tabIcons[1]);

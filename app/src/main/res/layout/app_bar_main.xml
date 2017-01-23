@@ -7,8 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".HomeScreen.activity.MainActivity">
 
-    <include
-        layout="@layout/layout_fab"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></include>
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:layout_gravity="bottom">
+        <include
+            layout="@layout/layout_fab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></include>
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

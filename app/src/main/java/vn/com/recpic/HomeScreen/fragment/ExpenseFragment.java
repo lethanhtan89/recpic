@@ -1,10 +1,13 @@
 package vn.com.recpic.HomeScreen.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
@@ -15,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -28,7 +32,10 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
+import vn.com.recpic.HomeScreen.activity.CalendarActivity;
 import vn.com.recpic.R;
+import vn.com.recpic.SearchScreen.activity.SearchActivity;
+import vn.com.recpic.SearchScreen.activity.SearchLocationActivity;
 
 
 /**
@@ -36,10 +43,11 @@ import vn.com.recpic.R;
  */
 
 public class ExpenseFragment extends Fragment implements SeekBar.OnSeekBarChangeListener, OnChartValueSelectedListener{
+    private static final String TAG = ExpenseFragment.class.getSimpleName();
 
     private PieChart mChart;
     private SeekBar mSeekBarX, mSeekBarY;
-    private TextView tvX, tvY;
+    private TextView txtCalendar, tvX, tvY;
 
     public  ExpenseFragment(){
 
@@ -68,6 +76,17 @@ public class ExpenseFragment extends Fragment implements SeekBar.OnSeekBarChange
 
         //mSeekBarX = (SeekBar) view.findViewById(R.id.seekBar1);
        // mSeekBarY = (SeekBar) view.findViewById(R.id.seekBar2);
+        txtCalendar = (TextView) view.findViewById(R.id.expense_calendar);
+        txtCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+//                transaction.add(R.id.containerView, new CalendarFragment()).commit();
+                //Toast.makeText(getContext(), "A", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mChart = (PieChart) view.findViewById(R.id.chart);
 
@@ -89,14 +108,10 @@ public class ExpenseFragment extends Fragment implements SeekBar.OnSeekBarChange
 
         //mChart.animateY(1400);
         mChart.invalidate();
-
-
         //mSeekBarX.setOnSeekBarChangeListener(this);
        // mSeekBarY.setOnSeekBarChangeListener(this);
 
         setData(4,10);
-
-
     }
 
     @Override
