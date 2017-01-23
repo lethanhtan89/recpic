@@ -51,4 +51,5 @@ dependencies {
     compile 'com.loopj.android:android-async-http:1.4.6'
     compile 'cz.msebera.android:httpclient:4.4.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
+    compile 'com.prolificinteractive:material-calendarview:1.4.2'
 }

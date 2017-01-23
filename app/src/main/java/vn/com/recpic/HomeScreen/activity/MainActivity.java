@@ -25,10 +25,13 @@ import android.widget.Toast;
 
 import vn.com.recpic.AssetAnalyseScreen.fragment.AssetFragment;
 import vn.com.recpic.BudgetScreen.fragment.BudgetFragment;
+import vn.com.recpic.HomeScreen.fragment.CalendarFragment;
 import vn.com.recpic.HomeScreen.fragment.HomeFragment;
+import vn.com.recpic.HomeScreen.fragment.LogFragment;
 import vn.com.recpic.NoteScreen.fragment.NotesFragment;
 import vn.com.recpic.Notification.dialog.SmsDialogFragment;
 import vn.com.recpic.Notification.fragment.NofiticationFragment;
+import vn.com.recpic.PaymentPlanScreen.dialog.PaymentPlanDialogFragment;
 import vn.com.recpic.PaymentPlanScreen.fragment.PaymentPlanFragment;
 import vn.com.recpic.ProfileScreen.ProfileActivity;
 import vn.com.recpic.R;
@@ -38,15 +41,6 @@ import vn.com.recpic.SettingScreen.fragment.SettingFragment;
 import vn.com.recpic.database.MyFunctions;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    // tags used to attach the fragments
-    private static final String TAG_HOME = "home";
-    private static final String TAG_BUDGET = "budget";
-    private static final String TAG_ASSET = "asset";
-    private static final String TAG_NOTE = "note";
-    private static final String TAG_REPEAT = "repeat";
-    private static final String TAG_PAYMENT = "payment";
-    private static final String TAG_SETTING = "setting";
 
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
@@ -161,14 +155,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentTransaction = mFragmentManager.beginTransaction();
         if (id == R.id.main_action_list) {
-            Toast.makeText(this, "List", Toast.LENGTH_SHORT).show();
+            mFragmentTransaction.replace(R.id.containerView, new LogFragment()).commit();
             return true;
         }
 
         if(id ==R.id.main_action_noti){
-            mFragmentManager = getSupportFragmentManager();
-            mFragmentTransaction = mFragmentManager.beginTransaction();
             mFragmentTransaction.replace(R.id.containerView, new NofiticationFragment()).commit();
             txtToolbarTitle.setText(getResources().getString(R.string.ac_noti));
             return true;
@@ -294,5 +288,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        DialogFragment fragment = new PaymentPlanDialogFragment();
+        fragment.show(getSupportFragmentManager(), fragment.getTag());
     }
 }

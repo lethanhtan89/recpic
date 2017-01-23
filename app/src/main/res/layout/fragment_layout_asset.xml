@@ -22,9 +22,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            app:tabTextColor="#d3d3d3"
-            app:tabSelectedTextColor="@color/colorPrimary"
-            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabTextColor="@color/colorPrimary"
+            app:tabSelectedTextColor="@color/red"
+            app:tabIndicatorColor="@color/white"
             />
     </android.support.design.widget.AppBarLayout>
 
@@ -36,6 +36,7 @@
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp"
         android:layout_alignParentBottom="true"
+        android:layout_below="@+id/app_asset"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

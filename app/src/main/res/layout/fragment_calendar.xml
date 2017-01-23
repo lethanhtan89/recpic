@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <android.support.v7.widget.Toolbar
-            android:id="@+id/search_toolbar"
+            android:id="@+id/calendar_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:layout_gravity="center"
-            app:layout_scrollFlags="scroll|enterAlways"
             android:title=" "
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
             <TextView
-                android:id="@+id/txtToolBarSearchLocation"
+                android:id="@+id/txtToolBarCalendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -26,24 +26,19 @@
                 android:textSize="18dp"
                 android:layout_gravity="center"/>
         </android.support.v7.widget.Toolbar>
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/search_location_tab"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:tabMode="fixed"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="@color/bg_screen1"
-            app:tabSelectedTextColor="@color/bg_screen1"
-            app:tabTextAppearance="@style/TabTextAppearance"
-            app:tabTextColor="@color/colorPrimary" />
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/search_location_viewpager"
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:layout_height="wrap_content"
+        app:mcv_showOtherDates="all"
+        android:layout_gravity="center"
+        app:mcv_selectionColor="@color/colorPrimary" />
 
 </android.support.design.widget.CoordinatorLayout>

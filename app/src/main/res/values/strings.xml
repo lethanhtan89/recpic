@@ -6,6 +6,7 @@
     <string name="hint_confirm_password">CONFIRM PASSWORD (*)</string>
     <string name="sign_up">SIGN UP</string>
     <string name="login">LOGIN</string>
+    <string name="calendar">CALENDAR</string>
     <string name="txt_sign_up"></string>
     <string name="err_msg_name">Enter your full name</string>
     <string name="err_msg_email">Enter valid email address</string>
@@ -206,7 +207,13 @@
         * When there are more than 2 products in a receipt, editing one product will be applied to all the products that belongs to the receipt. \n\n
         * When the payment plan is not done, no more records belong to the payment plane will be written. \n\n
         * If the payment plan is not done, the expense record will be written as below. \n\n
-        * If 3 months payment plan has begin in January 10th and the user delete record in payment plan list on February 13th, then January and February reords will still be existed and the record will not be showed form Marth.\n\n
+        * If 3 months payment plan has begin in January 10th and the user delete record in payment plan list on February 13th, then January and February reords will still be existed and the record will not be showed form Marth.
 
     </string>
+    <string name="my_select_first">Select first month</string>
+    <string name="my_select_second">Select second month</string>
+    <string name="profile_pic">Profile picture</string>
+    <string name="select_pic">Select picture from gallery</string>
+    <string name="take_pic">Take a picture from camera</string>
+    <string name="close">Close</string>
 </resources>
