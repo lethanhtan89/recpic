@@ -254,4 +254,6 @@
     <string name="export">Export file sucessfully</string>
     <string name="send_file">Send file via email</string>
     <string name="dismiss">Dismiss</string>
+    <string name="dia_some_things">Something is not woking</string>
+    <string name="dia_genaral">Genaral Feedback</string>
 </resources>

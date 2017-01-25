@@ -37,7 +37,7 @@ import vn.com.recpic.Database.MyFunctions;
 public class SettingFragment extends Fragment {
     private Spinner spinnerDate, spinnerLanguage;
     private TextView txtProfile;
-    private LinearLayout lnExport;
+    private LinearLayout lnExport, lnSendEmail;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +59,7 @@ public class SettingFragment extends Fragment {
         spinnerLanguage = (Spinner) view.findViewById(R.id.spiLanguage);
         txtProfile = (TextView) view.findViewById(R.id.txtProfile);
         lnExport = (LinearLayout) view.findViewById(R.id.lnExport);
+        lnSendEmail = (LinearLayout) view.findViewById(R.id.lnSendEmail);
 
         txtProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +73,14 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 DialogFragment fragment = new ExportDialogFragment();
+                fragment.show(getFragmentManager(), fragment.getTag());
+            }
+        });
+
+        lnSendEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment fragment = new SendEmailDialogFragment();
                 fragment.show(getFragmentManager(), fragment.getTag());
             }
         });
