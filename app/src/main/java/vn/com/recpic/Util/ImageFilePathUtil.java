@@ -1,4 +1,4 @@
-package vn.com.recpic.util;
+package vn.com.recpic.Util;
 
 import android.content.ContentUris;
 import android.content.Context;

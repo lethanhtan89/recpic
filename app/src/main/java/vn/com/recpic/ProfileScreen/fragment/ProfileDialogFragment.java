@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -18,9 +17,8 @@ import android.widget.TextView;
 
 import java.io.File;
 
-import vn.com.recpic.ProfileScreen.ProfileActivity;
 import vn.com.recpic.R;
-import vn.com.recpic.util.Util;
+import vn.com.recpic.Util.Util;
 
 /**
  * Created by Administrator on 1/17/2017.

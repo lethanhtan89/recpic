@@ -1,11 +1,10 @@
-package vn.com.recpic.database;
+package vn.com.recpic.Database;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.NameValuePair;

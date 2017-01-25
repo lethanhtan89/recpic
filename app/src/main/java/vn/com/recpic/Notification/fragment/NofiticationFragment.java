@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import vn.com.recpic.HomeScreen.adapter.HomeFragmentAdapter;
 import vn.com.recpic.R;
@@ -72,7 +74,7 @@ public class NofiticationFragment extends DialogFragment{
         int id = item.getItemId();
         switch (id){
             case R.id.noti_action_close:
-                getParentFragment();
+                getChildFragmentManager().popBackStack("tag", 1);
                 break;
         }
         return super.onOptionsItemSelected(item);

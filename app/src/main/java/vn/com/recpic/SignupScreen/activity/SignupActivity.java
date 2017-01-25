@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -18,8 +16,7 @@ import org.json.JSONObject;
 
 import vn.com.recpic.LoginScreen.activity.LoginActivity;
 import vn.com.recpic.R;
-import vn.com.recpic.database.JSONParser;
-import vn.com.recpic.database.MyFunctions;
+import vn.com.recpic.Database.MyFunctions;
 
 
 /**

@@ -1,4 +1,4 @@
-package vn.com.recpic.database;
+package vn.com.recpic.Database;
 
 import org.json.JSONObject;
 
@@ -13,7 +13,6 @@ import cz.msebera.android.httpclient.NameValuePair;
 import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
 import cz.msebera.android.httpclient.client.methods.HttpPost;
 import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
-import cz.msebera.android.httpclient.message.BufferedHeader;
 
 /**
  * Created by Le Tan on 04/01/2017.

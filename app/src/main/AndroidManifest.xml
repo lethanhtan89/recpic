@@ -37,9 +37,9 @@
         <activity android:name=".SignupScreen.activity.ForgotPasswordActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".ProfileScreen.ProfileActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name=".NoteScreen.activity.AddNoteActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".NoteScreen.activity.EditNoteActivity" android:screenOrientation="portrait" />
-        <activity android:name=".HomeScreen.activity.AddExpenseActivity" android:screenOrientation="portrait" />
+        <activity android:name=".NoteScreen.activity.AddNoteActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"/>
+        <activity android:name=".NoteScreen.activity.EditNoteActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"/>
+        <activity android:name=".HomeScreen.activity.AddExpenseActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"/>
         <activity
             android:name=".Notification.activity.SendReportActivity" android:screenOrientation="portrait"
             android:theme="@style/Recpic.NoActionBar" android:parentActivityName=".HomeScreen.activity.MainActivity"/>
@@ -51,7 +51,7 @@
 
         <activity android:name=".HomeScreen.activity.CalendarActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar">
         </activity>
-
+        <activity android:name=".Camera.activity.CameraActivity" android:screenOrientation="portrait" />
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=
                 "keyboard|keyboardHidden|screenLayout|screenSize|orientation"

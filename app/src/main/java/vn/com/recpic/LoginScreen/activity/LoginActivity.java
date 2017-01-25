@@ -32,7 +32,7 @@ import vn.com.recpic.HomeScreen.activity.MainActivity;
 import vn.com.recpic.R;
 import vn.com.recpic.SignupScreen.activity.ForgotPasswordActivity;
 import vn.com.recpic.SignupScreen.activity.SignupActivity;
-import vn.com.recpic.database.MyFunctions;
+import vn.com.recpic.Database.MyFunctions;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 

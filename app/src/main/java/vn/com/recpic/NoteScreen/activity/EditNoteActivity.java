@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -23,6 +26,7 @@ public class EditNoteActivity extends AppCompatActivity {
     private static final String TAG_NOTE_RECEIVE = "Notes_Edit";
     private static final String TAG_NOTE_SEND = "Notes_Updated";
     private EditText etTitle, etContent;
+    private TextView txtToolbarEdit;
     private LinearLayout lnEdit;
     private Notes notes;
     @Override
@@ -33,12 +37,13 @@ public class EditNoteActivity extends AppCompatActivity {
         etTitle = (EditText) findViewById(R.id.et_note_title);
         etContent = (EditText) findViewById(R.id.et_note_content);
         lnEdit = (LinearLayout) findViewById(R.id.ln_add_note_ok);
+        txtToolbarEdit = (TextView) findViewById(R.id.txtToolBarNote);
 
         notes = (Notes) getIntent().getExtras().get(TAG_NOTE_RECEIVE);
         etTitle.setText(notes.getTitle());
         etContent.setText(notes.getContent());
 
-        setActionBar();
+        setupToolbar();
         editNote();
     }
 
@@ -60,20 +65,32 @@ public class EditNoteActivity extends AppCompatActivity {
         });
     }
 
-    private void setActionBar(){
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.chevron_left);
-        TextView tv = new TextView(getApplicationContext());
-        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
-        tv.setLayoutParams(lp);
-        tv.setGravity(Gravity.CENTER);
-        tv.setText(getResources().getString(R.string.ac_add_note));
-        tv.setTextColor(getResources().getColor(R.color.white));
-        tv.setTextSize(14);
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        actionBar.setCustomView(tv);
+    private void setupToolbar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.note_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.icon_cancel));
+        getSupportActionBar().setTitle(" ");
+        txtToolbarEdit.setText(notes.getTitle());
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_budget, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            case R.id.budget_action_noti:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

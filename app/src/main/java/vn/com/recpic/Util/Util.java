@@ -1,4 +1,4 @@
-package vn.com.recpic.util;
+package vn.com.recpic.Util;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -18,9 +18,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.List;
-
-import vn.com.recpic.R;
-import vn.com.recpic.database.UserInfo;
 
 /**
  * Created by Tan Le on 2017-01-18.
