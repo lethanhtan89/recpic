@@ -12,20 +12,27 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import vn.com.recpic.LoginScreen.activity.LoginActivity;
 import vn.com.recpic.Notification.fragment.NofiticationFragment;
 import vn.com.recpic.R;
-import vn.com.recpic.database.MyFunctions;
+import vn.com.recpic.Database.MyFunctions;
 
 /**
  * Created by Administrator on 22/12/2016.
  */
 
 public class SettingFragment extends Fragment {
+    private Spinner spinnerDate, spinnerLanguage;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +50,26 @@ public class SettingFragment extends Fragment {
     private void init(View view){
         ToggleButton mTogAuto = (ToggleButton) view.findViewById(R.id.tog_auto_save_photo);
         mTogAuto.setText("");
+        spinnerDate = (Spinner) view.findViewById(R.id.spiStartingDate);
+        spinnerLanguage = (Spinner) view.findViewById(R.id.spiLanguage);
+
+        String arrayDate[] = getResources().getStringArray(R.array.starting_date);
+        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getContext(), R.array.starting_date, android.R.layout.simple_spinner_item);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinnerDate.setAdapter(arrayAdapter);
+
+        spinnerDate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                Toast.makeText(getContext(), item, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         TextView txtSignout = (TextView) view.findViewById(R.id.profile_sign_out);
         txtSignout.setOnClickListener(new View.OnClickListener() {

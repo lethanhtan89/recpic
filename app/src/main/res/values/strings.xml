@@ -61,6 +61,7 @@
     <string name="s_sign_out">Sign out</string>
 
     <!--Add note-->
+    <string name="note_title">DEFAULT TITLE</string>
     <string name="add_note_title">Default title</string>
     <string name="content_note">Default content</string>
     <string name="menu_edit_note">Edit</string>
@@ -216,4 +217,38 @@
     <string name="select_pic">Select picture from gallery</string>
     <string name="take_pic">Take a picture from camera</string>
     <string name="close">Close</string>
+    <string-array name="starting_date">
+        <item>Day 1</item>
+        <item>Day 2</item>
+        <item>Day 3</item>
+        <item>Day 4</item>
+        <item>Day 5</item>
+        <item>Day 6</item>
+        <item>Day 7</item>
+        <item>Day 8</item>
+        <item>Day 9</item>
+        <item>Day 10</item>
+        <item>Day 11</item>
+        <item>Day 12</item>
+        <item>Day 13</item>
+        <item>Day 14</item>
+        <item>Day 15</item>
+        <item>Day 16</item>
+        <item>Day 17</item>
+        <item>Day 18</item>
+        <item>Day 19</item>
+        <item>Day 20</item>
+        <item>Day 21</item>
+        <item>Day 22</item>
+        <item>Day 23</item>
+        <item>Day 24</item>
+        <item>Day 25</item>
+        <item>Day 26</item>
+        <item>Day 27</item>
+        <item>Day 28</item>
+    </string-array>
+    <string-array name="language">
+        <item>Enlish</item>
+        <item>Korean</item>
+    </string-array>
 </resources>

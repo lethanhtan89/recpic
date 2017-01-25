@@ -1,7 +1,10 @@
 package vn.com.recpic.HomeScreen.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
@@ -23,9 +26,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+
 import vn.com.recpic.AssetAnalyseScreen.fragment.AssetFragment;
 import vn.com.recpic.BudgetScreen.fragment.BudgetFragment;
-import vn.com.recpic.HomeScreen.fragment.CalendarFragment;
 import vn.com.recpic.HomeScreen.fragment.HomeFragment;
 import vn.com.recpic.HomeScreen.fragment.LogFragment;
 import vn.com.recpic.NoteScreen.fragment.NotesFragment;
@@ -38,10 +42,11 @@ import vn.com.recpic.R;
 import vn.com.recpic.RepeatRecordScreen.fragment.RepeatFragment;
 import vn.com.recpic.SearchScreen.activity.SearchActivity;
 import vn.com.recpic.SettingScreen.fragment.SettingFragment;
-import vn.com.recpic.database.MyFunctions;
+import vn.com.recpic.Database.MyFunctions;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int IMAGE_CAMERA = 10001;
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
     private FloatingActionButton fab, fab_add, fab_cam, fab_sms, fab_search;
@@ -52,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Toolbar toolbar;
     ActionBarDrawerToggle toggle;
     private FrameLayout mFabFrameLayout;
+    private Uri uriCameraImage;
 
     FragmentManager mFragmentManager;
     FragmentTransaction mFragmentTransaction;
@@ -163,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         if(id ==R.id.main_action_noti){
-            mFragmentTransaction.replace(R.id.containerView, new NofiticationFragment()).commit();
+            mFragmentTransaction.replace(R.id.containerView, new NofiticationFragment()).addToBackStack("tag").commit();
             txtToolbarTitle.setText(getResources().getString(R.string.ac_noti));
             return true;
         }
@@ -268,7 +274,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab_cam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Camera", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                String url = "tmp_" + String.valueOf(System.currentTimeMillis());
+                uriCameraImage = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), url));
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, uriCameraImage);
+                startActivityForResult(intent, IMAGE_CAMERA);
             }
         });
 

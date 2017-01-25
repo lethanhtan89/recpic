@@ -1,4 +1,4 @@
-package vn.com.recpic.database;
+package vn.com.recpic.Database;
 
 /**
  * Created by Administrator on 04/01/2017.

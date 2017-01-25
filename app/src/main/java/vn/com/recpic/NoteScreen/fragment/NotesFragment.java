@@ -1,6 +1,5 @@
 package vn.com.recpic.NoteScreen.fragment;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -32,7 +31,7 @@ import vn.com.recpic.NoteScreen.listener.NotesListener;
 import vn.com.recpic.NoteScreen.model.Notes;
 import vn.com.recpic.Notification.fragment.NofiticationFragment;
 import vn.com.recpic.R;
-import vn.com.recpic.database.DataBaseHelper;
+import vn.com.recpic.Database.DataBaseHelper;
 
 import static android.app.Activity.RESULT_OK;
 

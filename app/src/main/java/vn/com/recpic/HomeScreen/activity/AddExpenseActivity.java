@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import vn.com.recpic.HomeScreen.adapter.HomeFragmentAdapter;
 import vn.com.recpic.HomeScreen.fragment.AddExpenseFragment;
 import vn.com.recpic.HomeScreen.fragment.AddIncomeFragment;
@@ -25,20 +27,19 @@ import vn.com.recpic.R;
 public class AddExpenseActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    private TextView txtToolbarTitle;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expense);
-        setActionBar();
-
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.expense_toolbar);
-//        setSupportActionBar(toolbar);
         init();
+        setupToolbar();
     }
 
     private void init(){
         mTabLayout = (TabLayout) findViewById(R.id.expense_tab);
         mViewPager = (ViewPager) findViewById(R.id.expense_viewpager);
+        txtToolbarTitle = (TextView) findViewById(R.id.txtToolBarAddExpense);
 
         if(mViewPager != null) {
             setupViewPager(mViewPager);
@@ -62,16 +63,17 @@ public class AddExpenseActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home)
+            onBackPressed();
         return super.onOptionsItemSelected(item);
     }
 
-    private void setActionBar(){
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.hide();
-        //actionBar.setDisplayHomeAsUpEnabled(true);
-       // actionBar.setDisplayShowTitleEnabled(true);
-        //actionBar.setTitle(getResources().getString(R.string.type_in));
-        //ctionBar.setHomeAsUpIndicator(R.drawable.icon_close);
+    private void setupToolbar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.expense_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(" ");
+        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.icon_cancel));
+        txtToolbarTitle.setText(getResources().getString(R.string.type_in));
     }
 }
