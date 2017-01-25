@@ -3,6 +3,7 @@ package vn.com.recpic.SettingScreen.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ import java.util.List;
 
 import vn.com.recpic.LoginScreen.activity.LoginActivity;
 import vn.com.recpic.Notification.fragment.NofiticationFragment;
+import vn.com.recpic.ProfileScreen.ProfileActivity;
 import vn.com.recpic.R;
 import vn.com.recpic.Database.MyFunctions;
 
@@ -33,6 +36,8 @@ import vn.com.recpic.Database.MyFunctions;
 
 public class SettingFragment extends Fragment {
     private Spinner spinnerDate, spinnerLanguage;
+    private TextView txtProfile;
+    private LinearLayout lnExport;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,13 +57,47 @@ public class SettingFragment extends Fragment {
         mTogAuto.setText("");
         spinnerDate = (Spinner) view.findViewById(R.id.spiStartingDate);
         spinnerLanguage = (Spinner) view.findViewById(R.id.spiLanguage);
+        txtProfile = (TextView) view.findViewById(R.id.txtProfile);
+        lnExport = (LinearLayout) view.findViewById(R.id.lnExport);
 
-        String arrayDate[] = getResources().getStringArray(R.array.starting_date);
+        txtProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        lnExport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment fragment = new ExportDialogFragment();
+                fragment.show(getFragmentManager(), fragment.getTag());
+            }
+        });
+
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getContext(), R.array.starting_date, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinnerDate.setAdapter(arrayAdapter);
 
+        ArrayAdapter<CharSequence> arrayAdapterLanguage = ArrayAdapter.createFromResource(getContext(), R.array.language, android.R.layout.simple_spinner_item);
+        arrayAdapterLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerLanguage.setAdapter(arrayAdapterLanguage);
+
         spinnerDate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                Toast.makeText(getContext(), item, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinnerLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
