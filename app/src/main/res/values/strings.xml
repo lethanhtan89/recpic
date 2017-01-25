@@ -251,4 +251,7 @@
         <item>Enlish</item>
         <item>Korean</item>
     </string-array>
+    <string name="export">Export file sucessfully</string>
+    <string name="send_file">Send file via email</string>
+    <string name="dismiss">Dismiss</string>
 </resources>
