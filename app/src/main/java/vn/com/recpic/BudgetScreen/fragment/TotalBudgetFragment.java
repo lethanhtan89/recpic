@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -26,6 +27,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
+import vn.com.recpic.BudgetScreen.dialog.EditTotalDialogFragment;
 import vn.com.recpic.R;
 
 
@@ -38,6 +40,7 @@ public class TotalBudgetFragment extends Fragment implements SeekBar.OnSeekBarCh
     private PieChart mChart;
     private SeekBar mSeekBarX, mSeekBarY;
     private TextView tvX, tvY;
+    private TextView txtEditTotal;
 
     public TotalBudgetFragment(){
 
@@ -66,6 +69,14 @@ public class TotalBudgetFragment extends Fragment implements SeekBar.OnSeekBarCh
 
         //mSeekBarX = (SeekBar) view.findViewById(R.id.seekBar1);
        // mSeekBarY = (SeekBar) view.findViewById(R.id.seekBar2);
+        txtEditTotal = (TextView) view.findViewById(R.id.edit_total_budget);
+        txtEditTotal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment fragment = new EditTotalDialogFragment();
+                fragment.show(getChildFragmentManager(), fragment.getTag());
+            }
+        });
 
         mChart = (PieChart) view.findViewById(R.id.chart);
 

@@ -272,4 +272,6 @@
     <string name="bank_sms">BANK SMS INTERRATION</string>
     <string name="sms_import">SMS IMPORT</string>
     <string name="notification">NOTIFICATION</string>
+    <string name="budget_total">Total budget settings</string>
+    <string name="enter_new_budget">Enter new budget total</string>
 </resources>
