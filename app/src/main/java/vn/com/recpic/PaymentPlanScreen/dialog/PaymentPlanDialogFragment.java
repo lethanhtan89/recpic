@@ -25,7 +25,7 @@ public class PaymentPlanDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dialog_payment_plan, container, false);
-		//getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+		getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         init(view);
         return view;
     }
