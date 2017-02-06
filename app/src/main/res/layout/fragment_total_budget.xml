@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center|top"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/edit_total_budget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:drawableRight="@drawable/icon_budget_edit"
+        android:gravity="right"
+        android:padding="15dp"
+        android:text="@string/budget_total" />
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/chart"
         android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginRight="10dp"
-         />
-</RelativeLayout>
+        android:layout_height="250dp" />
+</LinearLayout>
 
