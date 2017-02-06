@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/sms_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:layout_gravity="center"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:title=" "
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            <TextView
+                android:id="@+id/txtToolBarCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_gravity="center"/>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/txt_card_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_settings"
+            android:background="@drawable/edittext_boder"/>
+        <TextView
+            android:id="@+id/txt_bank_sms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_sms"
+            android:background="@drawable/edittext_boder"/>
+        <TextView
+            android:id="@+id/txt_paste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_form"
+            android:background="@drawable/edittext_boder"/>
+        <TextView
+            android:id="@+id/txt_sms_import"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/card_inbox"
+            android:background="@drawable/edittext_boder"/>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
+
+
