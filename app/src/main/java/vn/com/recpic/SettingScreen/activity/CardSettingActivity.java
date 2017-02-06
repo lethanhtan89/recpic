@@ -1,5 +1,6 @@
 package vn.com.recpic.SettingScreen.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -45,7 +46,9 @@ public class CardSettingActivity extends AppCompatActivity {
         txtBankSMS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(), BankSMSActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -60,7 +63,9 @@ public class CardSettingActivity extends AppCompatActivity {
         txtInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(), SmsImportActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

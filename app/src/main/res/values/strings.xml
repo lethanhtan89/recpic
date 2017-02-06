@@ -269,4 +269,7 @@
     <string name="card_inbox">Read from inbox</string>
     <string name="sms_data">Oops! Please copy your card SMS before clicking this icon. \n
     If you cannot paste your SMS, please report with the card name and its sms content</string>
+    <string name="bank_sms">BANK SMS INTERRATION</string>
+    <string name="sms_import">SMS IMPORT</string>
+    <string name="notification">NOTIFICATION</string>
 </resources>
