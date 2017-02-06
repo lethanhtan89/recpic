@@ -262,4 +262,11 @@
     <string name="dia_genaral">Genaral Feedback</string>
     <string name="sort_by">SORT BY</string>
     <string name="repeat_no_data">There is no duplicated data</string>
+    <string name="card_sms_setting">CARD(SMS) SETTING</string>
+    <string name="card_settings">My card settings</string>
+    <string name="card_sms">Bank SMS Intergration</string>
+    <string name="card_form">Paste from clipboard</string>
+    <string name="card_inbox">Read from inbox</string>
+    <string name="sms_data">Oops! Please copy your card SMS before clicking this icon. \n
+    If you cannot paste your SMS, please report with the card name and its sms content</string>
 </resources>
