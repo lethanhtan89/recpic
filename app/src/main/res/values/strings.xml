@@ -251,9 +251,15 @@
         <item>Enlish</item>
         <item>Korean</item>
     </string-array>
+    <string-array name="sortby">
+        <item>Lastest</item>
+        <item>Oldest</item>
+    </string-array>
     <string name="export">Export file sucessfully</string>
     <string name="send_file">Send file via email</string>
     <string name="dismiss">Dismiss</string>
     <string name="dia_some_things">Something is not woking</string>
     <string name="dia_genaral">Genaral Feedback</string>
+    <string name="sort_by">SORT BY</string>
+    <string name="repeat_no_data">There is no duplicated data</string>
 </resources>
