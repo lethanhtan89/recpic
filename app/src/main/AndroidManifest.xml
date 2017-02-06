@@ -52,6 +52,8 @@
         <activity android:name=".HomeScreen.activity.CalendarActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar">
         </activity>
         <activity android:name=".SettingScreen.activity.CardSettingActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar" />
+        <activity android:name=".SettingScreen.activity.BankSMSActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar" />
+        <activity android:name=".SettingScreen.activity.SmsImportActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar" />
         <activity android:name=".Camera.activity.CameraActivity" android:screenOrientation="portrait" />
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=
