@@ -12,15 +12,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Recpic">
+        android:theme="@style/Recpic.NoActionBar">
         <activity
             android:name=".HomeScreen.activity.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Recpic.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".LaucherScreen.activity.SplashActivity" android:screenOrientation="portrait">
+        <activity android:name=".LaucherScreen.activity.SplashActivity" android:screenOrientation="portrait" android:theme="@style/Recpic">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,33 +27,34 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SignupScreen.activity.SignupActivity" android:screenOrientation="portrait">
+        <activity android:name=".SignupScreen.activity.SignupActivity" android:screenOrientation="portrait" android:theme="@style/Recpic">
 
         </activity>
-        <activity android:name=".LoginScreen.activity.LoginActivity" android:screenOrientation="portrait">
+        <activity android:name=".LoginScreen.activity.LoginActivity" android:screenOrientation="portrait" android:theme="@style/Recpic">
 
         </activity>
         <activity android:name=".SignupScreen.activity.ForgotPasswordActivity" android:screenOrientation="portrait"></activity>
-        <activity android:name=".ProfileScreen.ProfileActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"
+        <activity android:name=".ProfileScreen.ProfileActivity" android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name=".NoteScreen.activity.AddNoteActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"/>
-        <activity android:name=".NoteScreen.activity.EditNoteActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"/>
-        <activity android:name=".HomeScreen.activity.AddExpenseActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"/>
+        <activity android:name=".NoteScreen.activity.AddNoteActivity" android:screenOrientation="portrait" />
+        <activity android:name=".NoteScreen.activity.EditNoteActivity" android:screenOrientation="portrait" />
+        <activity android:name=".HomeScreen.activity.AddExpenseActivity" android:screenOrientation="portrait" />
         <activity
             android:name=".Notification.activity.SendReportActivity" android:screenOrientation="portrait"
-            android:theme="@style/Recpic.NoActionBar" android:parentActivityName=".HomeScreen.activity.MainActivity"/>
-        <activity android:name=".SearchScreen.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"
+            android:parentActivityName=".HomeScreen.activity.MainActivity"/>
+        <activity android:name=".SearchScreen.activity.SearchActivity" android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"/>
 
-        <activity android:name=".SearchScreen.activity.SearchLocationActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar"
+        <activity android:name=".SearchScreen.activity.SearchLocationActivity" android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden"/>
 
-        <activity android:name=".HomeScreen.activity.CalendarActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar">
+        <activity android:name=".HomeScreen.activity.CalendarActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".SettingScreen.activity.CardSettingActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar" />
-        <activity android:name=".SettingScreen.activity.BankSMSActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar" />
-        <activity android:name=".SettingScreen.activity.SmsImportActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar" />
-        <activity android:name=".SettingScreen.activity.NotificationSettingActivity" android:screenOrientation="portrait" android:theme="@style/Recpic.NoActionBar" />
+        <activity android:name=".SettingScreen.activity.CardSettingActivity" android:screenOrientation="portrait" />
+        <activity android:name=".SettingScreen.activity.BankSMSActivity" android:screenOrientation="portrait" />
+        <activity android:name=".SettingScreen.activity.SmsImportActivity" android:screenOrientation="portrait" />
+        <activity android:name=".SettingScreen.activity.NotificationSettingActivity" android:screenOrientation="portrait" />
+        <activity android:name=".SettingScreen.activity.MyCardSettingActivity" android:screenOrientation="portrait" />
         <activity android:name=".Camera.activity.CameraActivity" android:screenOrientation="portrait" />
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=

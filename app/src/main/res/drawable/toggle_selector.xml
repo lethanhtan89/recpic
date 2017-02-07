@@ -2,9 +2,9 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:drawable="@drawable/tog_on"
-        android:state_checked="true"/>
+        android:state_checked="false"/>
 
     <item
         android:drawable="@drawable/tog_off"
-        android:state_checked="false"/>
+        android:state_checked="true"/>
 </selector>
