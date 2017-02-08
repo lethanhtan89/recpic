@@ -77,6 +77,8 @@
     <string name="ac_payment">PAYMENT PLAN</string>
     <string name="ac_setting">SETTINGS</string>
     <string name="ac_noti">NOTIFICATION</string>
+    <string name="terms">TERMS OF SERVICE</string>
+    <string name="privacy">PRIVACY POLICY</string>
 
     <string name="facebook_app_id">105524669953936</string>
     <string name="type_in">TYPE IN</string>
@@ -302,4 +304,6 @@
     <string name="about_privacy">Privacy Policy</string>
     <string name="about_ver">App version</string>
     <string name="about_delete">Delete your account</string>
+    <string name="del_title">Delete acount confirmation</string>
+    <string name="del_info">Please enter your current password to delete account</string>
 </resources>
