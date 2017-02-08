@@ -29,6 +29,7 @@ import vn.com.recpic.Notification.fragment.NofiticationFragment;
 import vn.com.recpic.ProfileScreen.ProfileActivity;
 import vn.com.recpic.R;
 import vn.com.recpic.Database.MyFunctions;
+import vn.com.recpic.SettingScreen.activity.AboutActivity;
 import vn.com.recpic.SettingScreen.activity.CardSettingActivity;
 import vn.com.recpic.SettingScreen.activity.FAQActivity;
 import vn.com.recpic.SettingScreen.activity.NotificationSettingActivity;
@@ -40,7 +41,7 @@ import vn.com.recpic.SettingScreen.activity.NotificationSettingActivity;
 public class SettingFragment extends Fragment {
     private Spinner spinnerDate, spinnerLanguage;
     private TextView txtProfile;
-    private LinearLayout lnExport, lnSendEmail, lnCardSetting, lnNotification, lnFaq;
+    private LinearLayout lnExport, lnSendEmail, lnCardSetting, lnNotification, lnFaq, lnAbout;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +67,7 @@ public class SettingFragment extends Fragment {
         lnCardSetting = (LinearLayout) view.findViewById(R.id.lnCardSetting);
         lnNotification = (LinearLayout) view.findViewById(R.id.lnNotification);
         lnFaq = (LinearLayout) view.findViewById(R.id.lnFaq);
+        lnAbout = (LinearLayout) view.findViewById(R.id.lnAbout);
 
         txtProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +114,14 @@ public class SettingFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), FAQActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        lnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AboutActivity.class);
                 startActivity(intent);
             }
         });

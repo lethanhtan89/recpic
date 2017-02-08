@@ -57,6 +57,7 @@
         <activity android:name=".SettingScreen.activity.MyCardSettingActivity" android:screenOrientation="portrait" />
         <activity android:name=".Camera.activity.CameraActivity" android:screenOrientation="portrait" />
         <activity android:name=".SettingScreen.activity.FAQActivity" android:screenOrientation="portrait" />
+        <activity android:name=".SettingScreen.activity.AboutActivity" android:screenOrientation="portrait" />
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=
                 "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
