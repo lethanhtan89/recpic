@@ -30,6 +30,7 @@ import vn.com.recpic.ProfileScreen.ProfileActivity;
 import vn.com.recpic.R;
 import vn.com.recpic.Database.MyFunctions;
 import vn.com.recpic.SettingScreen.activity.CardSettingActivity;
+import vn.com.recpic.SettingScreen.activity.FAQActivity;
 import vn.com.recpic.SettingScreen.activity.NotificationSettingActivity;
 
 /**
@@ -39,7 +40,7 @@ import vn.com.recpic.SettingScreen.activity.NotificationSettingActivity;
 public class SettingFragment extends Fragment {
     private Spinner spinnerDate, spinnerLanguage;
     private TextView txtProfile;
-    private LinearLayout lnExport, lnSendEmail, lnCardSetting, lnNotification;
+    private LinearLayout lnExport, lnSendEmail, lnCardSetting, lnNotification, lnFaq;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +65,7 @@ public class SettingFragment extends Fragment {
         lnSendEmail = (LinearLayout) view.findViewById(R.id.lnSendEmail);
         lnCardSetting = (LinearLayout) view.findViewById(R.id.lnCardSetting);
         lnNotification = (LinearLayout) view.findViewById(R.id.lnNotification);
+        lnFaq = (LinearLayout) view.findViewById(R.id.lnFaq);
 
         txtProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,6 +105,14 @@ public class SettingFragment extends Fragment {
                 Intent intent = new Intent(getContext(), NotificationSettingActivity.class);
                 startActivity(intent);
                 //getActivity().finish();
+            }
+        });
+
+        lnFaq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), FAQActivity.class);
+                startActivity(intent);
             }
         });
 

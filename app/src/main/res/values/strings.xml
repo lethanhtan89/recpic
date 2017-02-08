@@ -290,4 +290,11 @@
     <string name="last_4_digital">Enter the last 4 digits</string>
     <string name="add_card_info">This is optional section but if you enter the last 4 digits in yuor card, It makes a better card categorization for you.</string>
     <string name="rename_card">RENAME CARD</string>
+    <string name="faq_1">How can I check transaction log by payment mothod?</string>
+    <string name="faq_2">How can I add receipt ?</string>
+    <string name="faq_3">Is it possition for me to add receipt manually without taking receipt pictures ?</string>
+    <string name="faq_4">After taking photots of receipts, how long does it take for the receipt information to be entered ?</string>
+    <string name="faq_5">How can I edit or delete information in my account book ?</string>
+    <string name="faq_6">How can I export the account book data to PC</string>
+    <string name="faq_7">How can I check my transaction log by annually, monthly or customized period</string>
 </resources>
