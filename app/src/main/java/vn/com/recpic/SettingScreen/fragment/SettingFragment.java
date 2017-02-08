@@ -102,7 +102,7 @@ public class SettingFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), NotificationSettingActivity.class);
                 startActivity(intent);
-                getActivity().finish();
+                //getActivity().finish();
             }
         });
 

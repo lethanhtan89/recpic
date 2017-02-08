@@ -7,9 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import vn.com.recpic.R;
+import vn.com.recpic.SettingScreen.fragment.AddCardDialogFragment;
 import vn.com.recpic.SettingScreen.fragment.MyCardDialogFragment;
 
 /**
@@ -17,6 +19,7 @@ import vn.com.recpic.SettingScreen.fragment.MyCardDialogFragment;
  */
 
 public class MyCardSettingActivity extends AppCompatActivity {
+    private TextView txtAddNewCard, txtToolbar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,15 +29,23 @@ public class MyCardSettingActivity extends AppCompatActivity {
     }
 
     private void init(){
-        TextView txtToolbar = (TextView) findViewById(R.id.txtToolBarCardSetting);
-        txtToolbar.setText(getResources().getString(R.string.card_settings));
-        txtToolbar.setAllCaps(true);
+        txtAddNewCard = (TextView) findViewById(R.id.txt_add_new_card);
+        txtAddNewCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment fragment = new AddCardDialogFragment();
+                fragment.show(getSupportFragmentManager(), fragment.getTag());
+            }
+        });
     }
 
     private void setupToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.card_setting_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(" ");
+        txtToolbar = (TextView) findViewById(R.id.txtToolBarCardSetting);
+        txtToolbar.setText(getResources().getString(R.string.card_settings));
+        txtToolbar.setAllCaps(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

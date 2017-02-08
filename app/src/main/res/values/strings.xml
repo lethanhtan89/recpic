@@ -284,4 +284,10 @@
     * WHAT IS CARD SMS\n\n\n
     THE SERVICE THAT YOU RECEIVE SMS MESSAGE CARD PAYMENT INFORMATION FROM CERTAIN CARD COMPANY YOU USED TO PAY\n\n\n
     * EVEN IF YOU DELETE CARTAIN CARD NAME IN NEW CARD LIST, IT WILL AUTOMATICALLY CREATE SUCH NEW CARD WITH THE SAME SITUATION ABOVE\n\n</string>
+    <string name="add_card_title">Enter information</string>
+    <string name="bank_name">Bank name</string>
+    <string name="card_name">Please select card type</string>
+    <string name="last_4_digital">Enter the last 4 digits</string>
+    <string name="add_card_info">This is optional section but if you enter the last 4 digits in yuor card, It makes a better card categorization for you.</string>
+    <string name="rename_card">RENAME CARD</string>
 </resources>
