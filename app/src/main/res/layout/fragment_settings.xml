@@ -245,6 +245,7 @@
                 android:background="@color/note_back_title"/>
 
             <LinearLayout
+                android:id="@+id/lnInvite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="15dp"

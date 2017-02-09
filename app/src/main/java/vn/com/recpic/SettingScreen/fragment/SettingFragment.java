@@ -1,12 +1,15 @@
 package vn.com.recpic.SettingScreen.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.ShareActionProvider;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,6 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +46,8 @@ import vn.com.recpic.SettingScreen.activity.NotificationSettingActivity;
 public class SettingFragment extends Fragment {
     private Spinner spinnerDate, spinnerLanguage;
     private TextView txtProfile;
-    private LinearLayout lnExport, lnSendEmail, lnCardSetting, lnNotification, lnFaq, lnAbout;
+    private LinearLayout lnExport, lnSendEmail, lnCardSetting, lnNotification, lnFaq, lnAbout, lnInvite;
+    private ShareActionProvider shareActionProvider;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +74,7 @@ public class SettingFragment extends Fragment {
         lnNotification = (LinearLayout) view.findViewById(R.id.lnNotification);
         lnFaq = (LinearLayout) view.findViewById(R.id.lnFaq);
         lnAbout = (LinearLayout) view.findViewById(R.id.lnAbout);
+        lnInvite = (LinearLayout) view.findViewById(R.id.lnInvite);
 
         txtProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +130,17 @@ public class SettingFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), AboutActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        lnInvite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                //Uri screenshotUri = Uri.parse("share");
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(Intent.EXTRA_STREAM, "recpic");
+                startActivity(Intent.createChooser(sharingIntent, "Share recpic using"));
             }
         });
 
@@ -191,5 +209,19 @@ public class SettingFragment extends Fragment {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setShareIntent(Intent shareIntent){
+        if(shareActionProvider != null) {
+            shareActionProvider.setShareIntent(shareIntent);
+        }
+    }
+
+    private Intent createShareIntent() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT,
+                "http://monkeylivetv.com");
+        return shareIntent;
     }
 }
