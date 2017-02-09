@@ -1,4 +1,4 @@
-package vn.com.recpic.HomeScreen.fragment;
+package vn.com.recpic.HomeScreen.dialog;
 
 import android.app.Dialog;
 import android.support.annotation.NonNull;

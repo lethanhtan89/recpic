@@ -52,4 +52,6 @@ dependencies {
     compile 'cz.msebera.android:httpclient:4.4.1.1'
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
     compile 'com.prolificinteractive:material-calendarview:1.4.2'
+
+    compile 'com.wdullaer:materialdatetimepicker:2.3.0'
 }

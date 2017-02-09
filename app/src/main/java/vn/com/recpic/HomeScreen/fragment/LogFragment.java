@@ -12,9 +12,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import vn.com.recpic.HomeScreen.adapter.HomeFragmentAdapter;
+import vn.com.recpic.HomeScreen.dialog.ExpenseLogFragment;
 import vn.com.recpic.Notification.fragment.NofiticationFragment;
 import vn.com.recpic.R;
 
