@@ -1,33 +1,31 @@
 package vn.com.recpic.HomeScreen.fragment;
 
-import android.content.Intent;
+import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
-import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.NestedScrollView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import java.util.Calendar;
 
-import vn.com.recpic.HomeScreen.activity.MainActivity;
 import vn.com.recpic.HomeScreen.adapter.ExpenseSlideAdapter;
+import vn.com.recpic.HomeScreen.dialog.DatePickerDialogFragment;
+import vn.com.recpic.HomeScreen.dialog.TimePickerDialogFragment;
 import vn.com.recpic.HomeScreen.model.PrefManager;
 import vn.com.recpic.R;
 
@@ -35,7 +33,7 @@ import vn.com.recpic.R;
  * Created by Administrator on 05/01/2017.
  */
 
-public class AddExpenseFragment extends BottomSheetDialogFragment {
+public class AddExpenseFragment extends Fragment implements DatePickerDialog.OnDateSetListener{
     private ViewPager mViewPager;
     private ExpenseSlideAdapter adapter;
     private LinearLayout mDotLayout;
@@ -43,10 +41,9 @@ public class AddExpenseFragment extends BottomSheetDialogFragment {
     private PrefManager mPrefManager;
     private int[] layouts;
     private FloatingActionButton mDetailSetings;
-    private CoordinatorLayout mCoordinatorLayout;
-    private BottomSheetBehavior mSheetBehavior;
-    private View mNestExpense;
-    private NestedScrollView mNestedScrollView;
+    private TextView txtDate, txtTime;
+    String date;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,42 +63,61 @@ public class AddExpenseFragment extends BottomSheetDialogFragment {
         mViewPager = (ViewPager) view.findViewById(R.id.add_expense_view_pager);
         mDotLayout = (LinearLayout) view.findViewById(R.id.layoutDots);
         mDetailSetings = (FloatingActionButton) view.findViewById(R.id.bt_detail_setting);
-//        LinearLayout llBottomSheet = (LinearLayout) view.findViewById(R.id.bottom_sheet);
-//        final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet);
-//
-//        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-//        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-//        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-//
-//        bottomSheetBehavior.setPeekHeight(340);
-//
-//        bottomSheetBehavior.setHideable(false);
-//
-//        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-//            @Override
-//            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-//
-//            }
-//
-//            @Override
-//            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-//
-//            }
-//        });
+        txtDate = (TextView) view.findViewById(R.id.txtDate);
+        txtTime = (TextView) view.findViewById(R.id.txtTime);
 
+        txtDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Calendar now = Calendar.getInstance();
+//                DatePickerDialog dialog = new DatePickerDialog(
+//                        getActivity(),this,
+//                        now.get(Calendar.YEAR),
+//                        now.get(Calendar.MONTH),
+//                        now.get(Calendar.DAY_OF_MONTH)
+//                );
+////                dialog.setThemeDark(true);
+////                dialog.vibrate(true);
+////                dialog.dismissOnPause(true);
+////                dialog.showYearPickerFirst(false);
+////                dialog.setAccentColor(getResources().getColor(R.color.colorPrimary));
+//                dialog.setTitle("Choose a date, please");
+//                dialog.show(getFragmentManager(), "Datepickerdialog");
+                DialogFragment fragment = new DatePickerDialogFragment(date);
+                fragment.show(getFragmentManager(), fragment.getTag());
+                txtDate.setText(date);
+            }
+        });
+
+        txtTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Calendar now = Calendar.getInstance();
+//                TimePickerDialog timepickerdialog = TimePickerDialog.newInstance((TimePickerDialog.OnTimeSetListener) getContext(),
+//                        now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), true);
+//                timepickerdialog.setThemeDark(false); //Dark Theme?
+//                timepickerdialog.vibrate(false); //vibrate on choosing time?
+//                timepickerdialog.dismissOnPause(false); //dismiss the dialog onPause() called?
+//                timepickerdialog.enableSeconds(true); //show seconds?
+//
+//                //Handling cancel event
+//                timepickerdialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+//                    @Override
+//                    public void onCancel(DialogInterface dialogInterface) {
+//                        Toast.makeText(getContext(), "Cancel choosing time", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                timepickerdialog.show(getActivity().getFragmentManager(), "Timepickerdialog");
+                DialogFragment fragment = new TimePickerDialogFragment();
+                fragment.show(getFragmentManager(), fragment.getTag());
+            }
+        });
 
 
         mDetailSetings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // BottomSheetDialogFragment fragment = new ExpenseBottomSheetDialogFragment();
-                //fragment.show(getChildFragmentManager(), fragment.getTag());
-                //               mSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-//                if(behavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
-//                    behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-//                } else {
-//                    behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-//                }
+
             }
         });
         layouts = new int[]{
@@ -152,11 +168,6 @@ public class AddExpenseFragment extends BottomSheetDialogFragment {
         }
     };
 
-    private void lauchHomeScreen(){
-        mPrefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(getContext(), MainActivity.class));
-        getActivity().finish();
-    }
 
     private void changeStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -165,4 +176,24 @@ public class AddExpenseFragment extends BottomSheetDialogFragment {
             window.setStatusBarColor(Color.BLACK);
         }
     }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+    }
+
+//    @Override
+//    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+//        String date = "You picked: " + dayOfMonth + "/" + monthOfYear + "/" + year;
+//        txtDate.setText(date);
+//    }
+//
+//    @Override
+//    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute, int second) {
+//        String hourString = hourOfDay < 10 ? "0" + hourOfDay : "" + hourOfDay;
+//        String minuteString = minute < 10 ? "0" + minute : "" + minute;
+//        String secondString = second < 10 ? "0" + second : "" + second;
+//        String time = "You picked the following time: " + hourString + "h" + minuteString + "m" + secondString + "s";
+//        txtTime.setText(time);
+//    }
 }

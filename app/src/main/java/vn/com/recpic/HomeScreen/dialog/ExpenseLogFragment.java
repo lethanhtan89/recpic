@@ -1,4 +1,4 @@
-package vn.com.recpic.HomeScreen.fragment;
+package vn.com.recpic.HomeScreen.dialog;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
