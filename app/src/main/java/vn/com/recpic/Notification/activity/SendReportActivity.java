@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import vn.com.recpic.HomeScreen.activity.MainActivity;
 import vn.com.recpic.R;
@@ -23,8 +24,11 @@ public class SendReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_send_sms_report);
         Toolbar toolbar = (Toolbar) findViewById(R.id.send_sms_report_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(getResources().getString(R.string.send_email_to_repic));
+        getSupportActionBar().setTitle(" ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        TextView txtToolbar = (TextView) findViewById(R.id.txtToolBarSend);
+        txtToolbar.setText(getResources().getString(R.string.s_send_email));
+        txtToolbar.setAllCaps(true);
  }
 
     @Override
