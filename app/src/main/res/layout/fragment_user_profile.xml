@@ -245,7 +245,7 @@
                     android:layout_height="wrap_content"
                     android:drawableRight="@drawable/icon_password_input"
                     android:hint="@string/profile_current_passowrd"
-                    android:textColorHint="@color/fab_edit"
+                    android:background="@drawable/edittext_boder_profile"
                     android:textSize="12dp" />
 
                 <LinearLayout
@@ -267,9 +267,8 @@
                     android:layout_height="wrap_content"
                     android:drawableRight="@drawable/icon_password_input"
                     android:hint="@string/profile_current_passowrd"
-                    android:textColorHint="@color/fab_edit"
-                    android:textSize="12dp"
-                    />
+                    android:background="@drawable/edittext_boder_profile"
+                    android:textSize="12dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -283,9 +282,8 @@
                     android:layout_height="wrap_content"
                     android:drawableRight="@drawable/icon_password_input"
                     android:hint="@string/profile_current_passowrd"
-                    android:textColorHint="@color/fab_edit"
-                    android:textSize="12dp"
-                    />
+                    android:background="@drawable/edittext_boder_profile"
+                    android:textSize="12dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -293,9 +291,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
                     android:background="@color/boder_user_profile"></LinearLayout>
-
             </LinearLayout>
-
         </ScrollView>
 
     </RelativeLayout>
