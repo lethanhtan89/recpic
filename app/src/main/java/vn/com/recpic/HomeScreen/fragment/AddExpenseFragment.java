@@ -1,6 +1,8 @@
 package vn.com.recpic.HomeScreen.fragment;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,13 +21,13 @@ import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 import vn.com.recpic.HomeScreen.adapter.ExpenseSlideAdapter;
-import vn.com.recpic.HomeScreen.dialog.DatePickerDialogFragment;
-import vn.com.recpic.HomeScreen.dialog.TimePickerDialogFragment;
 import vn.com.recpic.HomeScreen.model.PrefManager;
 import vn.com.recpic.R;
 
@@ -33,7 +35,7 @@ import vn.com.recpic.R;
  * Created by Administrator on 05/01/2017.
  */
 
-public class AddExpenseFragment extends Fragment implements DatePickerDialog.OnDateSetListener{
+public class AddExpenseFragment extends DialogFragment{
     private ViewPager mViewPager;
     private ExpenseSlideAdapter adapter;
     private LinearLayout mDotLayout;
@@ -42,12 +44,13 @@ public class AddExpenseFragment extends Fragment implements DatePickerDialog.OnD
     private int[] layouts;
     private FloatingActionButton mDetailSetings;
     private TextView txtDate, txtTime;
-    String date;
+    private int year, month, day, hour, minute;
+    String mDate;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mPrefManager = new PrefManager(getContext());
     }
 
@@ -60,60 +63,10 @@ public class AddExpenseFragment extends Fragment implements DatePickerDialog.OnD
     }
 
     private void init(View view){
+        setupDateTime(view);
         mViewPager = (ViewPager) view.findViewById(R.id.add_expense_view_pager);
         mDotLayout = (LinearLayout) view.findViewById(R.id.layoutDots);
         mDetailSetings = (FloatingActionButton) view.findViewById(R.id.bt_detail_setting);
-        txtDate = (TextView) view.findViewById(R.id.txtDate);
-        txtTime = (TextView) view.findViewById(R.id.txtTime);
-
-        txtDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Calendar now = Calendar.getInstance();
-//                DatePickerDialog dialog = new DatePickerDialog(
-//                        getActivity(),this,
-//                        now.get(Calendar.YEAR),
-//                        now.get(Calendar.MONTH),
-//                        now.get(Calendar.DAY_OF_MONTH)
-//                );
-////                dialog.setThemeDark(true);
-////                dialog.vibrate(true);
-////                dialog.dismissOnPause(true);
-////                dialog.showYearPickerFirst(false);
-////                dialog.setAccentColor(getResources().getColor(R.color.colorPrimary));
-//                dialog.setTitle("Choose a date, please");
-//                dialog.show(getFragmentManager(), "Datepickerdialog");
-                DialogFragment fragment = new DatePickerDialogFragment(date);
-                fragment.show(getFragmentManager(), fragment.getTag());
-                txtDate.setText(date);
-            }
-        });
-
-        txtTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Calendar now = Calendar.getInstance();
-//                TimePickerDialog timepickerdialog = TimePickerDialog.newInstance((TimePickerDialog.OnTimeSetListener) getContext(),
-//                        now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), true);
-//                timepickerdialog.setThemeDark(false); //Dark Theme?
-//                timepickerdialog.vibrate(false); //vibrate on choosing time?
-//                timepickerdialog.dismissOnPause(false); //dismiss the dialog onPause() called?
-//                timepickerdialog.enableSeconds(true); //show seconds?
-//
-//                //Handling cancel event
-//                timepickerdialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-//                    @Override
-//                    public void onCancel(DialogInterface dialogInterface) {
-//                        Toast.makeText(getContext(), "Cancel choosing time", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                timepickerdialog.show(getActivity().getFragmentManager(), "Timepickerdialog");
-                DialogFragment fragment = new TimePickerDialogFragment();
-                fragment.show(getFragmentManager(), fragment.getTag());
-            }
-        });
-
-
         mDetailSetings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,12 +80,69 @@ public class AddExpenseFragment extends Fragment implements DatePickerDialog.OnD
                 R.layout.tab_add_expense_four
         };
 
-
         addBottomDots(0);
         changeStatusBarColor();
         adapter = new ExpenseSlideAdapter(getContext(), layouts);
         mViewPager.setAdapter(adapter);
         mViewPager.addOnPageChangeListener(onPageChangeListener);
+    }
+
+    private void setupDateTime(View view){
+        final Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        final int real_month = month + 1;
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        hour = calendar.get(Calendar.HOUR_OF_DAY);
+        minute = calendar.get(Calendar.MINUTE);
+
+        txtDate = (TextView) view.findViewById(R.id.txtDate);
+        txtTime = (TextView) view.findViewById(R.id.txtTime);
+
+        String mMonth = real_month < 10 ? "0" + real_month : "" + real_month;
+        final String mDay = day < 10 ? "0" + day: "" + day;
+        String mHour = hour < 10 ? "0" + hour : "" + hour;
+        String mMinute = minute < 10 ? "0" + minute : "" + minute;
+        mDate = year + "/" + mMonth + "/" + mDay;
+
+        txtDate.setText(mDate);
+
+        if(hour < 12 && hour >=0) {
+            txtTime.setText(mHour + ":" + mMinute + " " + getResources().getString(R.string.AM));
+        }
+        else {
+            txtTime.setText(mHour + ":" + mMinute + " " + getResources().getString(R.string.PM));
+        }
+
+        txtDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        getActivity(),datePickerListener,
+                        year,
+                        real_month,
+                        day
+                );
+                dialog.setTitle(getResources().getString(R.string.set_date));
+                dialog.show();
+            }
+        });
+
+        txtTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog dialog = new TimePickerDialog(
+                        getActivity(),
+                        timePickerListener,
+                        hour,
+                        minute,
+                        true
+                );
+                dialog.setTitle(getResources().getString(R.string.set_time));
+                dialog.show();
+            }
+        });
     }
 
     private void addBottomDots(int currentPage) {
@@ -177,23 +187,30 @@ public class AddExpenseFragment extends Fragment implements DatePickerDialog.OnD
         }
     }
 
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+    private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener(){
 
-    }
+        @Override
+        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            month += 1;
+            String monthString = month < 10 ? "0" + month : "" + month;
+            String dayString = dayOfMonth < 10 ? "0" + dayOfMonth: "" + dayOfMonth;
+            String date = year + "/" + monthString + "/" + dayString;
+            txtDate.setText(date);
+        }
+    };
 
-//    @Override
-//    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-//        String date = "You picked: " + dayOfMonth + "/" + monthOfYear + "/" + year;
-//        txtDate.setText(date);
-//    }
-//
-//    @Override
-//    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute, int second) {
-//        String hourString = hourOfDay < 10 ? "0" + hourOfDay : "" + hourOfDay;
-//        String minuteString = minute < 10 ? "0" + minute : "" + minute;
-//        String secondString = second < 10 ? "0" + second : "" + second;
-//        String time = "You picked the following time: " + hourString + "h" + minuteString + "m" + secondString + "s";
-//        txtTime.setText(time);
-//    }
+    private TimePickerDialog.OnTimeSetListener timePickerListener = new TimePickerDialog.OnTimeSetListener() {
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            String hourString = hourOfDay < 10 ? "0" + hourOfDay : "" + hourOfDay;
+            String minuteString = minute < 10 ? "0" + minute : "" + minute;
+            String time = hourString + ":" + minuteString;
+            if(hourOfDay < 12 && hourOfDay >=0) {
+                txtTime.setText(time + " " + getResources().getString(R.string.AM));
+            }
+            else {
+                txtTime.setText(time + " " + getResources().getString(R.string.PM));
+            }
+        }
+    };
 }
