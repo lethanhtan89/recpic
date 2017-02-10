@@ -306,4 +306,8 @@
     <string name="about_delete">Delete your account</string>
     <string name="del_title">Delete acount confirmation</string>
     <string name="del_info">Please enter your current password to delete account</string>
+    <string name="set_date">Set date</string>
+    <string name="set_time">Set time</string>
+    <string name="AM"> AM</string>
+    <string name="PM"> PM</string>
 </resources>
