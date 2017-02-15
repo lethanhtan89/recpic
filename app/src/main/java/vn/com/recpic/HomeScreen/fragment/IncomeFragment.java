@@ -1,5 +1,6 @@
 package vn.com.recpic.HomeScreen.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
+import vn.com.recpic.HomeScreen.activity.CalendarActivity;
 import vn.com.recpic.R;
 
 
@@ -34,6 +36,7 @@ import vn.com.recpic.R;
 
 public class IncomeFragment extends Fragment {
     private PieChart mChart;
+    private TextView txtCalendar;
 
     public IncomeFragment(){
 
@@ -58,6 +61,15 @@ public class IncomeFragment extends Fragment {
 
     private void init(View view){
         mChart = (PieChart) view.findViewById(R.id.chart);
+        txtCalendar = (TextView) view.findViewById(R.id.income_calendar);
+
+        txtCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mChart.setCenterText(generateCenterSpannableText());
         mChart.setUsePercentValues(true);

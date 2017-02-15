@@ -1,5 +1,6 @@
 package vn.com.recpic.HomeScreen.dialog;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.widget.DatePicker;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 
 import vn.com.recpic.HomeScreen.fragment.AddExpenseFragment;
 
@@ -21,9 +23,11 @@ import vn.com.recpic.HomeScreen.fragment.AddExpenseFragment;
 
 public class DatePickerDialogFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
     String date;
-    public DatePickerDialogFragment(String date){
+    //DateDialogFragmentListener listener;
+    public DatePickerDialogFragment (String date){
         this.date = date;
     }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -40,5 +44,8 @@ public class DatePickerDialogFragment extends DialogFragment implements DatePick
         String monthString = month < 10 ? "0" + month : "" + month;
         String dayString = dayOfMonth < 10 ? "0" + dayOfMonth: "" + dayOfMonth;
         date = year + "/" + monthString + "/" + dayString;
+//        Intent intent = new Intent();
+//        intent.putExtra("date", date);
+//        getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, intent);
     }
 }

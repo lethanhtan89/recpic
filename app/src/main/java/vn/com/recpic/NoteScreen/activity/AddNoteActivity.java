@@ -45,8 +45,6 @@ public class AddNoteActivity extends AppCompatActivity {
         txtNoteToolbarTitle = (TextView) findViewById(R.id.txtToolBarNote);
         setupToolbar();
         addNewNote();
-
-
     }
 
     private void addNewNote(){
@@ -73,7 +71,6 @@ public class AddNoteActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.icon_cancel));
         getSupportActionBar().setTitle(" ");
         txtNoteToolbarTitle.setText(getResources().getString(R.string.note_title));
-
     }
 
     @Override
