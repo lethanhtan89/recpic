@@ -1,8 +1,9 @@
 package vn.com.recpic.HomeScreen.fragment;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,12 +23,12 @@ import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Locale;
 
 import vn.com.recpic.HomeScreen.adapter.ExpenseSlideAdapter;
+import vn.com.recpic.HomeScreen.dialog.DatePickerDialogFragment;
 import vn.com.recpic.HomeScreen.model.PrefManager;
 import vn.com.recpic.R;
 
@@ -46,6 +47,7 @@ public class AddExpenseFragment extends DialogFragment{
     private TextView txtDate, txtTime;
     private int year, month, day, hour, minute;
     String mDate;
+    public static final int DATEPICKER_FRAGMENT=1;
 
 
     @Override
@@ -126,6 +128,9 @@ public class AddExpenseFragment extends DialogFragment{
                 );
                 dialog.setTitle(getResources().getString(R.string.set_date));
                 dialog.show();
+//                DialogFragment fragment = new DatePickerDialogFragment(mDate);
+//                fragment.show(getFragmentManager(), mDate);
+
             }
         });
 
@@ -213,4 +218,18 @@ public class AddExpenseFragment extends DialogFragment{
             }
         }
     };
+
+
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        //super.onActivityResult(requestCode, resultCode, data);
+//        switch (requestCode){
+//            case DATEPICKER_FRAGMENT:
+//                if(resultCode == Activity.RESULT_OK){
+//                    Bundle bundle=data.getExtras();
+//                    String resultDate = bundle.getString("date","error");
+//                    txtDate.setText(resultDate);
+//                }
+//        }
+//    }
 }

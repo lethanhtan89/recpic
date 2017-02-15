@@ -145,11 +145,11 @@ public class SettingFragment extends Fragment {
         });
 
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getContext(), R.array.starting_date, android.R.layout.simple_spinner_item);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        arrayAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         spinnerDate.setAdapter(arrayAdapter);
 
         ArrayAdapter<CharSequence> arrayAdapterLanguage = ArrayAdapter.createFromResource(getContext(), R.array.language, android.R.layout.simple_spinner_item);
-        arrayAdapterLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        arrayAdapterLanguage.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         spinnerLanguage.setAdapter(arrayAdapterLanguage);
 
         spinnerDate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
